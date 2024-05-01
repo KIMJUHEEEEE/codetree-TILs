@@ -13,7 +13,7 @@ int main() {
         cin>>arr[i];
         if(i%2==0)
         {
-            sort(arr,arr+i);
+            sort(arr,arr+i+1);
             cout<<arr[i/2]<<' ';
         }
     }
