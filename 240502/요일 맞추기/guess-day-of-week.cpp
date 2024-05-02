@@ -9,38 +9,33 @@ int main() {
     int date[13] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
     cin >> m1 >> d1 >> m2 >> d2;
     int sum = 0;
-    if (m1 == m2)
+    if(m1==m2)
     {
-        sum += d2 - d1;
-    }
-    else if (m1 > m2)
-    {
-        sum += date[m2] - d2-1;
-        sum += d1-1;
-        for (int i = m2 + 1; i < m1; i++)
-        {
-            sum += date[i];
-            if(i==m1-1) sum--;
+        sum=m2-m1;
+        if(sum<0){
+            sum=sum*(-1);
+            sum=7-sum%7;
         }
-    }
-    else
+    }   
+    else if(m1<m2)
     {
-        sum += date[m1] - d1;
-        sum += d2;
-        for (int i = m1 + 1; i < m2; i++)
+        sum+=date[m1]-d1-1;
+        sum+=d2-1;
+        for(int i=m1+1;i<m2;i++)
         {
-            sum += date[i];
+            sum+=date[i];
+            if(i==m2-1) sum--;
         }
+        sum=sum%7;
     }
-    string ans;
-    if (sum < 0)
-    {
-        sum *= (-1);
-        sum = sum % 7;
-        sum = 7 - sum;
-        ans = week[sum];
+    else{
+        sum+=d1;
+        sum+=date[m2]-d2;
+        for(int i=m2+1;i<m1;i++)
+        {
+            sum+=date[i];
+        }
+        sum=7-sum%7;
     }
-    else ans = week[sum % 7];
-    cout << ans;
-    return 0;
+    cout<<week[sum];
 }
