@@ -11,7 +11,7 @@ int main() {
     int sum = 0;
     if(m1==m2)
     {
-        sum=m2-m1;
+        sum=d2-d1;
         if(sum<0){
             sum=sum*(-1);
             sum=7-sum%7;
