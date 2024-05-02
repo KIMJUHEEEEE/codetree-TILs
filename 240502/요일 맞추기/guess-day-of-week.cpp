@@ -20,6 +20,7 @@ int main() {
         for (int i = m2 + 1; i < m1; i++)
         {
             sum += date[i];
+            if(i==m1-1) sum--;
         }
     }
     else
