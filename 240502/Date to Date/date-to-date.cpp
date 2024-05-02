@@ -7,14 +7,20 @@ int main() {
     cin>>m1>>d1>>m2>>d2;
     int date[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
     int sum=0;
-    
-    sum+=date[m1]-d1+1;
-    sum+=d2;
+    if(m1==m2)
+    {
+        sum+=d2-d1+1;
+    }
+    else
+    {
+        sum+=date[m1]-d1+1;
+        sum+=d2;
+    }
     for(int i=m1+1;i<m2;i++)
     {
         sum+=date[i];
     }
-    if(m1==m2&&d1==d2) sum=1;
+    
     cout<<sum;
     return 0;
 }
