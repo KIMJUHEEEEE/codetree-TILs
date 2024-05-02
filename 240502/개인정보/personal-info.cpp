@@ -7,7 +7,7 @@ class person{
     public:
     string name;
     int height;
-    float weight;
+    double weight;
     person(){}
 };
 
@@ -28,7 +28,7 @@ int main() {
     {
     string name;
     int height;
-    float weight;
+    double weight;
     cin>>name>>height>>weight;
     info[i].name=name;
     info[i].height=height;
@@ -38,6 +38,8 @@ int main() {
     cout<<"name"<<endl;
     for(int i=0;i<5;i++)
     {
+        cout << fixed;
+        cout.precision(1);
         cout<<info[i].name<<' '<<info[i].height<<' '<<info[i].weight<<endl;
     }
     
@@ -45,6 +47,8 @@ int main() {
     cout<<endl<<"height"<<endl;
     for(int i=0;i<5;i++)
     {
+        cout << fixed;
+        cout.precision(1);
         cout<<info[i].name<<' '<<info[i].height<<' '<<info[i].weight<<endl;
     }
     return 0;
