@@ -9,6 +9,7 @@ int main() {
     sum+=(a-11)*24*60;
     sum+=(b-11)*60;
     sum+=(c-11);
+    if(sum<0) sum=-1;
     cout<<sum;
     return 0;
 }
