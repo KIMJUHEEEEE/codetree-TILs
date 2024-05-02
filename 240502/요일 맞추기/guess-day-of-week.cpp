@@ -19,12 +19,11 @@ int main() {
     }   
     else if(m1<m2)
     {
-        sum+=date[m1]-d1-1;
-        sum+=d2-1;
+        sum+=date[m1]-d1;
+        sum+=d2;
         for(int i=m1+1;i<m2;i++)
         {
             sum+=date[i];
-            if(i==m2-1) sum--;
         }
         sum=sum%7;
     }
