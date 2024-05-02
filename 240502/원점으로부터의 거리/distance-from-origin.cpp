@@ -12,6 +12,10 @@ class spot{
 
 bool cmp(spot a, spot b)
 {
+    if(a.x+a.y==b.x+b.y)
+    {
+        return a.idx<b.idx;
+    }
     return a.x+a.y<b.x+b.y;
 }
 
