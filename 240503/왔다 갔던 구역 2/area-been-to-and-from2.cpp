@@ -14,17 +14,19 @@ int main() {
         cin>>a>>b;
         if(b=='R')
         {
-            for(int j=1;j<a;j++)
+            for(int j=0;j<a;j++)
             {
                 arr[dx+j]++;
             }
+            dx=dx+a;
         }
         else
         {
-            for(int j=1;j<a;j++)
+            for(int j=0;j<a;j++)
             {
                 arr[dx-j]++;
             }
+            dx=dx-a;
         }
     }
     int cnt=0;
