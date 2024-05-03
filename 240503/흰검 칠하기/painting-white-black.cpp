@@ -3,12 +3,12 @@ using namespace std;
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    int white[2001]={0,};
-    int black[2001]={0,};
-    char now[2001]={0,};
+    int white[20001]={0,};
+    int black[20001]={0,};
+    char now[20001]={0,};
     int n=0;
     cin>>n;
-    int dx=1000;
+    int dx=10000;
     for(int i=0;i<n;i++)
     {
         int a;
@@ -36,7 +36,7 @@ int main() {
     int gray=0;
     int bb=0;
     int ww=0;
-    for(int i=0;i<2001;i++)
+    for(int i=0;i<20001;i++)
     {
         if(white[i]>=2&&black[i]>=2)
         {
