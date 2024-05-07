@@ -48,6 +48,7 @@ int main() {
             }
         }
     }
+    if(maxh==9999||maxw==9999||minh==-9999||minw==-9999) cout<<0;
     cout << (maxw-minw) * (maxh-minh);
     return 0;
 }
