@@ -7,50 +7,47 @@ int main() {
 
     int x1, y1, x2, y2;
     cin >> x1 >> y1 >> x2 >> y2;
-    for (int i = x1; i <= x2; i++)
+    int minx=x1;
+    int maxx=x2;
+    int miny=y1;
+    int maxy=y2;
+    for (int i = x1+ 1000; i <= x2+ 1000; i++)
     {
-        for (int j = y1; j <= y2; j++)
+        for (int j = y1+ 1000; j <= y2+ 1000; j++)
         {
-            arr[i + 1000][j + 1000] = 1;
+            arr[i][j ] = 1;
         }
     }
     cin >> x1 >> y1 >> x2 >> y2;
-    for (int i = x1; i <= x2; i++)
+    if(x1<minx) minx=x1; 
+    if(x2>maxx) maxx=x2;
+    if(y1<miny) miny=y1;
+    if(y2>maxy) maxy=y2;
+    for (int i = x1+ 1000; i <= x2+ 1000; i++)
     {
-        for (int j = y1; j <= y2; j++)
+        for (int j = y1+ 1000; j <= y2+ 1000; j++)
         {
-            arr[i + 1000][j + 1000] = 0;
+            arr[i ][j ] = 0;
         }
     }
-    int maxw = 0;
-    int maxh = 0;
-    for (int i = 0; i < 2001; i++)
+    int maxw = -9999;
+    int maxh = -9999;
+    int minw=9999;
+    int minh=9999;
+    for (int i = minx+1000; i <= maxx+1000; i++)
     {
-        int mw = 0;
-        int mh = 0;
-        for (int j = 0; j < 2001; j++)
+        for (int j = miny+1000; j <= maxy+1000; j++)
         {
             if (arr[i][j] == 1)
             {
-                int tmpi = i;
-                int tmpj = j;
-                while (arr[tmpi][j] == 1)
-                {
-                    tmpi++;
-                    mh++;
-                }
-                while (arr[i][tmpj] == 1)
-                {
-                    tmpj++;
-                    mw++;
-                }
-                if (maxw < mw) maxw = mw;
-                if (maxh < mh) maxh = mh;
-                mw = 0;
-                mh = 0;
+                if(minw>j) minw=j;
+                if(minh>i) minh=i;
+                if(maxw<j) maxw=j;
+                if(maxh<i) maxh=i;
+               
             }
         }
     }
-    cout << (maxw-1) * (maxh-1);
+    cout << (maxw-minw) * (maxh-minh);
     return 0;
 }
