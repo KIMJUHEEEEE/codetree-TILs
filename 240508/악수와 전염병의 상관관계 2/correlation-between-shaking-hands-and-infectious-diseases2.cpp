@@ -6,44 +6,46 @@ int cnt[101];
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    int N,K,P,T;
-    int t,x,y;
-    cin>>N>>K>>P>>T;
-    sick[P]=1;
-    cnt[P]=K;
-    for(int i=0;i<T;i++)
+    int N, K, P, T;
+    int t, x, y;
+    cin >> N >> K >> P >> T;
+    sick[P] = 1;
+    cnt[P] = K;
+    int tmax = 0;
+    for (int i = 0; i < T; i++)
     {
-        
-        cin>>t>>x>>y;
-        arr[t][0]=x;
-        arr[t][1]=y;
+
+        cin >> t >> x >> y;
+        arr[t][0] = x;
+        arr[t][1] = y;
+        if (t > tmax) tmax = t;
     }
-    for(int i=1;i<=t;i++)
+    for (int i = 1; i <= tmax; i++)
     {
-        if(sick[arr[i][0]]==1)
+        if (sick[arr[i][0]] == 1)
         {
-            if(cnt[arr[i][0]]==0) continue;
+            if (cnt[arr[i][0]] == 0) continue;
             cnt[arr[i][0]]--;
-            if(sick[arr[i][1]]==0)
+            if (sick[arr[i][1]] == 0)
             {
-                sick[arr[i][1]]=1;
-                cnt[arr[i][1]]=K;
-            }            
+                sick[arr[i][1]] = 1;
+                cnt[arr[i][1]] = K;
+            }
         }
-        else if(sick[arr[i][1]]==1)
+        else if (sick[arr[i][1]] == 1)
         {
-            if(cnt[arr[i][1]]==0) continue;
+            if (cnt[arr[i][1]] == 0) continue;
             cnt[arr[i][1]]--;
-            if(sick[arr[i][0]]==0)
+            if (sick[arr[i][0]] == 0)
             {
-                sick[arr[i][0]]=1;
-                cnt[arr[i][0]]=K;
+                sick[arr[i][0]] = 1;
+                cnt[arr[i][0]] = K;
             }
         }
     }
-    for(int i=1;i<=N;i++)
+    for (int i = 1; i <= N; i++)
     {
-        cout<<sick[i];
+        cout << sick[i];
     }
     return 0;
 }
