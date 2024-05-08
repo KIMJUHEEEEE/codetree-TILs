@@ -31,7 +31,7 @@ int main() {
     }
     int cnt=0;
     char ck='0';
-    for(int i=1;i<1000001;i++)
+    for(int i=0;i<1000001;i++)
     {
         if(i>db||i>da) break;
         if(arra[i]>arrb[i])
