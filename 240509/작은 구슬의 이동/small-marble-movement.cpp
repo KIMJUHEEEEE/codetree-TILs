@@ -6,7 +6,7 @@ int dy[4]={1,0,0,-1};//동남북서
 int dir(char d)
 {
     if(d=='U') return 2;
-    else if(d=='d') return 1;
+    else if(d=='D') return 1;
     else if(d=='R') return 0;
     else return 3;
 }
@@ -21,7 +21,7 @@ int main() {
     int dd=dir(d);
     for(int i=0;i<t;i++)
     {
-        if(r+dx[dd]==0||c+dy[dd]==0||r+dx[dd]==n||c+dy[dd]==n)
+        if(r+dx[dd]<1||c+dy[dd]<1||r+dx[dd]>n||c+dy[dd]>n)
         {
             dd=3-dd;
         }
