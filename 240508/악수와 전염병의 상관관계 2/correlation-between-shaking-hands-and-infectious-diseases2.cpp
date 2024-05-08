@@ -24,7 +24,7 @@ int main() {
     {
         if (sick[arr[i][0]] == 1&&cnt[arr[i][0]]>0)
         {
-            if (cnt[arr[i][0]] == 0 && cnt[arr[i][1]] > 0) {
+            if (cnt[arr[i][1]] > 0) {
                 cnt[arr[i][1]]--;
             }
             cnt[arr[i][0]]--;
@@ -36,7 +36,7 @@ int main() {
         }
         else if (sick[arr[i][1]] == 1&&cnt[arr[i][1]]>0)
         {
-            if (cnt[arr[i][1]] == 0 && cnt[arr[i][0]] > 0) {
+            if (cnt[arr[i][0]] > 0) {
                 cnt[arr[i][0]]--;
             }
             cnt[arr[i][1]]--;
