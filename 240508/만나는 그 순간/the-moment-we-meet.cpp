@@ -61,10 +61,13 @@ int main() {
     }
     for (int i = 1; i < 1001; i++)
     {
+        if(i>sb||i>sa) break;
         if (arra[i] == arrb[i])
         {
-            cout << i; break;
+            cout << i; return 0;
         }
+        
     }
+    cout<<-1;
     return 0;
 }
