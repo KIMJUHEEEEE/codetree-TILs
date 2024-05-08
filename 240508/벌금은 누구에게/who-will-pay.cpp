@@ -13,7 +13,7 @@ int main() {
         int a=0;
         cin>>a;
         arr[a]++;
-        if(arr[a]>=k) ans=a;
+        if(arr[a]>=k&&ans==0) {ans=a;}
     }
     if(ans==0) cout<<-1;
     else cout<<ans;
