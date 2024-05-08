@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
-int arra[100001];
-int arrb[100001];
+int arra[1000001];
+int arrb[1000001];
 
 int main() {
     // 여기에 코드를 작성해주세요.
@@ -31,7 +31,7 @@ int main() {
     }
     int cnt=0;
     char ck='0';
-    for(int i=1;i<100001;i++)
+    for(int i=1;i<1000001;i++)
     {
         if(i>db||i>da) break;
         if(arra[i]>arrb[i])
