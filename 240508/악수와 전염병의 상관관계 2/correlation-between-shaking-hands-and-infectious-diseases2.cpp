@@ -22,9 +22,11 @@ int main() {
     }
     for (int i = 1; i <= tmax; i++)
     {
-        if (sick[arr[i][0]] == 1)
+        if (sick[arr[i][0]] == 1&&cnt[arr[i][0]]>0)
         {
-            if (cnt[arr[i][0]] == 0) continue;
+            if (cnt[arr[i][0]] == 0 && cnt[arr[i][1]] > 0) {
+                cnt[arr[i][1]]--;
+            }
             cnt[arr[i][0]]--;
             if (sick[arr[i][1]] == 0)
             {
@@ -32,9 +34,11 @@ int main() {
                 cnt[arr[i][1]] = K;
             }
         }
-        else if (sick[arr[i][1]] == 1)
+        else if (sick[arr[i][1]] == 1&&cnt[arr[i][1]]>0)
         {
-            if (cnt[arr[i][1]] == 0) continue;
+            if (cnt[arr[i][1]] == 0 && cnt[arr[i][0]] > 0) {
+                cnt[arr[i][0]]--;
+            }
             cnt[arr[i][1]]--;
             if (sick[arr[i][0]] == 0)
             {
