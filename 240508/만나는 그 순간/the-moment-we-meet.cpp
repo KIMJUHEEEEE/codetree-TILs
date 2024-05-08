@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
-int arra[1001];
-int arrb[1001];
+int arra[1000001];
+int arrb[1000001];
 
 int main() {
     // 여기에 코드를 작성해주세요.
@@ -59,7 +59,7 @@ int main() {
             }
         }
     }
-    for (int i = 1; i < 1001; i++)
+    for (int i = 1; i < 1000001; i++)
     {
         if(i>sb||i>sa) break;
         if (arra[i] == arrb[i])
