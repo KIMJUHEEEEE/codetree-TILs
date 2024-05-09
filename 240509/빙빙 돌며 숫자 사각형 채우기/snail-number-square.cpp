@@ -18,7 +18,7 @@ int main() {
 
         arr[x][y]=cnt;
         if(cnt==n*m) break;
-        if((x+dx[dir])<0||(y+dy[dir])<0||(x+dx[dir])==n||(y+dy[dir])==n||arr[x+dx[dir]][y+dy[dir]]!=0)
+        if((x+dx[dir])<0||(y+dy[dir])<0||(x+dx[dir])==n||(y+dy[dir])==m||arr[x+dx[dir]][y+dy[dir]]!=0)
         {
             dir=(dir+1)%4;
             x+=dx[dir];
