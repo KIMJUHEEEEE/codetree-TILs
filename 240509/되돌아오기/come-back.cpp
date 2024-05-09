@@ -32,8 +32,10 @@ int main() {
             x+=dx[dd];
             y+=dy[dd];
             cnt++;
-            if(x==1000&&y==1000) 
-            {ck=1; ans=cnt;}
+            if(x==1000&&y==1000&&ck==0) 
+            {ck=1; 
+            ans=cnt;
+            }
         }
     }
     if(ck==1) cout<<ans;
