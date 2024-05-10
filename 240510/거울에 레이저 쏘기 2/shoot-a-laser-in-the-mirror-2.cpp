@@ -39,9 +39,9 @@ int main() {
     int k;
     cin >> k;
     bool check = 0;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n+2; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < n+2; j++)
         {
             if (arrd[i][j] == k)
             {
