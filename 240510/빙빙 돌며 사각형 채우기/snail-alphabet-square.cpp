@@ -30,7 +30,7 @@ int main() {
     {
         for (int j = 0; j < m; j++)
         {
-           arrd[i][j]='A'+ arr[i][j] % 27-1 ;
+           arrd[i][j]='A'+ (arr[i][j] -1)%26 ;
            cout << arrd[i][j]<<' ';
         }
         cout << endl;
