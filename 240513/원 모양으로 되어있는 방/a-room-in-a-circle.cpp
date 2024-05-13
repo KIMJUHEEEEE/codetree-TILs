@@ -12,7 +12,7 @@ int main() {
         cin>>arr[i];
 
     }
-    int min=9999999;
+    int min=999999999;
     int sum=0;
     for(int i=0;i<n;i++)
     {
