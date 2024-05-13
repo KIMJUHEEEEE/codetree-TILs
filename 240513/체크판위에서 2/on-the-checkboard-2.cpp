@@ -17,11 +17,12 @@ int main() {
     int y=0;
     char st;
     int cnt=0;
+    if(st==arr[r-1][c-1]) {cout<<0; return 0;}
     for(int i=x+1;i<r-2;i++)
     {
-        st=arr[0][0];
         for(int j=y+1;j<c-2;j++)
         {
+            st=arr[0][0];
             if(st!=arr[i][j])
             {
                 st=arr[i][j];
