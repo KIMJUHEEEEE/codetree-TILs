@@ -23,7 +23,7 @@ int main() {
             }
             for (int k = i; k <= j; k++)
             {
-                if (sum / (j - i) == arr[k] && sum % (j - i) == 0)
+                if (sum / (j - i+1) == arr[k] && sum % (j - i+1) == 0)
                 {
                     ans++; break;
                 }
