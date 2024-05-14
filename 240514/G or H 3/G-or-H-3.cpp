@@ -17,12 +17,13 @@ int main() {
         else if(s=='H') arr[a]=2;
     }
     int max=0;
-    for(int i=0;i<10001;i++)
+    for(int i=0;i<=maxidx;i++)
     {
         int sum=0;
         for(int j=0;j<=k;j++)
         {
-        sum+=arr[i+j];
+        if(i+j<10001)
+        {sum+=arr[i+j];}
         }
         if(max<sum) max=sum;
     }
