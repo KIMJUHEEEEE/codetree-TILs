@@ -31,7 +31,7 @@ int main() {
             }
             //cout << "cnt"<<i<<' '<<j<<' '<<cnt << endl;
             int maxb = 0;
-            for (int a = 0; a < n; a++)
+            for (int a = i; a < n; a++)
             {
                 for (int b = 0; b < n-2; b++)
                 {
@@ -40,7 +40,7 @@ int main() {
                     {
                         for (int k = 0; k < 3; k++)
                         {
-                            if (arr[a][b + k] == 1 && b + k < n)
+                            if (arr[a][b + k] == 1 && b + k < n&&arrb[a][b+k]==0)
                             {
                                 cntb++;
                             }
