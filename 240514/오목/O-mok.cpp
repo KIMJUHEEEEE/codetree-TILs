@@ -70,7 +70,7 @@ for(int i=1;i<20;i++)
             {
                 ans=1;
                 x=i+2;
-                y=i-2;
+                y=j-2;
                 ck=1;
                 break;
             }
@@ -126,7 +126,7 @@ for(int i=1;i<20;i++)
             {
                 ans=2;
                 x=i+2;
-                y=i-2;
+                y=j-2;
                 ck=1;
                 break;
             }
