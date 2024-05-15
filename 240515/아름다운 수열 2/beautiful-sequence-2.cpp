@@ -34,14 +34,15 @@ int main() {
                         {
                             cnt++;
                             ck[l]=1;
+                            break;
                         }
                     }
-                }
-                ck[101]={0,};
-               
+                }   
+                break;            
             }
         }
          if(cnt==m) ans++;
+         cnt=0;
     }
     cout<<ans;
     return 0;
