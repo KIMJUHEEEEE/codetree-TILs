@@ -15,7 +15,7 @@ int main() {
         if(maxidx<b) maxidx=b;
     }
     int max=0;
-    for(int i=k;i<=maxidx;i++)
+    for(int i=k;i<=maxidx-k;i++)
     {
         int sum=0;
         for(int j=-k;j<=k;j++)
