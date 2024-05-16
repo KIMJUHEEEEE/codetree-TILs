@@ -11,12 +11,12 @@ int main() {
     int cnt;    int mul = 1;
     if (n > 5) {
         cnt = 250;
-        if (a1 >= n - 1) a1 -= n;
-        if (b1 >= n - 1) b1 -= n;
-        if (c1 >= n - 1) c1 -= n;
-        if (a2 >= n - 1) a2 -= n;
-        if (b2 >= n - 1) b2 -= n;
-        if (c2 >= n - 1) c2 -= n;
+        if (a1 >= n - 2) a1 -= n;
+        if (b1 >= n - 2) b1 -= n;
+        if (c1 >= n - 2) c1 -= n;
+        if (a2 >= n - 2) a2 -= n;
+        if (b2 >= n - 2) b2 -= n;
+        if (c2 >= n - 2) c2 -= n;
         n = 5;
         if (abs(a1 - a2) <= n - 1) mul *= abs(n - abs(a1 - a2));
         if (abs(b1 - b2) <= n - 1) mul *= abs(n - abs(b1 - b2));
