@@ -11,9 +11,9 @@ int main() {
     int cnt;    int mul=1;
     if(n>5) {
     cnt=250; n=5;
-    if(abs(a1-a2)<=n-1) mul*=(n-abs(a1-a2));
-    if(abs(b1-b2)<=n-1) mul*=(n-abs(b1-b2));
-    if(abs(c1-c2)<=n-1) mul*=(n-abs(c1-c2));}
+    if(abs(a1-a2)<=n-1) mul*=abs(n-abs(a1-a2));
+    if(abs(b1-b2)<=n-1) mul*=abs(n-abs(b1-b2));
+    if(abs(c1-c2)<=n-1) mul*=abs(n-abs(c1-c2));}
     else
     {
     cnt=n*n*n*2;
