@@ -6,7 +6,7 @@ int main() {
     int n;
     cin>>n;
     int a1,b1,c1,a2,b2,c2;
-    cin>>a1>>b2>>c1;
+    cin>>a1>>b1>>c1;
     cin>>a2>>b2>>c2;
     int cnt;    int mul=1;
     if(n>5) {
