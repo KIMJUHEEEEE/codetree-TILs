@@ -10,8 +10,8 @@ int main() {
     cin >> a2 >> b2 >> c2;
     int cnt;    int mul = 1;
     if (n > 5) {
-        cnt = 250; 
-        if (a1 >= n - 1) a1 -=n;
+        cnt = 250;
+        if (a1 >= n - 1) a1 -= n;
         if (b1 >= n - 1) b1 -= n;
         if (c1 >= n - 1) c1 -= n;
         if (a2 >= n - 1) a2 -= n;
@@ -21,6 +21,7 @@ int main() {
         if (abs(a1 - a2) <= n - 1) mul *= abs(n - abs(a1 - a2));
         if (abs(b1 - b2) <= n - 1) mul *= abs(n - abs(b1 - b2));
         if (abs(c1 - c2) <= n - 1) mul *= abs(n - abs(c1 - c2));
+        else if (abs(a1 - a2) > n && abs(b1 - b2) > n && abs(c1 - c2) > n) mul = 0;
     }
     else
     {
