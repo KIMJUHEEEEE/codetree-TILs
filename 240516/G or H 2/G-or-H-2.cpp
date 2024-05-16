@@ -27,7 +27,7 @@ int main() {
         {
             if (arr[i] == 'H') cnth++;
             else if (arr[i] == 'G') cntg++;
-            for (int j = i + 1; j < maxidx; j++)
+            for (int j = i + 1; j <= maxidx; j++)
             {
                 bool ck = 0;
                 if (arr[j] == 'H') { cnth++; ck = 1; }
