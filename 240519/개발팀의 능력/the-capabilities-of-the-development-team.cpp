@@ -15,10 +15,10 @@ int main() {
     for(int i=0;i<5;i++)
     {
         int c=arr[i];
-        int teammax=c;
-        int teammin=c;
         for(int j=0;j<4;j++)
         {
+            int teammax=c;
+            int teammin=c;
             if(i==j) continue;
             for(int k=j+1;k<5;k++)
             {
@@ -31,8 +31,7 @@ int main() {
                 if(teammin>tmpsum) teammin=tmpsum;
                 if(c!=tmp&&tmp!=tmpsum&&c!=tmpsum)
                 {
-                    
-                    if(min>teammax-teammin) min=teammax-teammin;
+                    if(min>abs(teammax-teammin)) min=abs(teammax-teammin);
                 }
             }
         }
