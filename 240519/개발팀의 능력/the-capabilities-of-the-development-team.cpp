@@ -31,7 +31,7 @@ int main() {
                 if(teammin>tmpsum) teammin=tmpsum;
                 if(c!=tmp&&tmp!=tmpsum&&c!=tmpsum)
                 {
-                    if(min>abs(teammax-teammin)) min=abs(teammax-teammin);
+                    if(min>teammax-teammin) min=teammax-teammin;
                 }
             }
         }
