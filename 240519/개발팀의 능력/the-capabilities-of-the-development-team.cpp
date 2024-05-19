@@ -17,11 +17,12 @@ int main() {
         int c=arr[i];
         for(int j=0;j<4;j++)
         {
-            int teammax=c;
-            int teammin=c;
+            
             if(i==j) continue;
             for(int k=j+1;k<5;k++)
             {
+                int teammax=c;
+                int teammin=c;
                 if(i==k) continue;
                 int tmp=arr[j]+arr[k];
                 int tmpsum=sum-c-tmp;
