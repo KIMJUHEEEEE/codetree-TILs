@@ -14,24 +14,22 @@ int main() {
     }
     int minarea=INT_MAX;
     for(int i=0;i<n;i++)
-    {  
-        for(int j=0;j<n;j++)
-        {
-          int maxx=INT_MIN;
+    {     int maxx=INT_MIN;
           int maxy=INT_MIN;
           int minx=INT_MAX;
           int miny=INT_MAX;
+        for(int j=0;j<n;j++)
+        {
           if(i!=j)
           {
-            if(arrx[i]<minx) minx=arrx[i];
-            if(arry[i]<miny) miny=arry[i];
-            if(arrx[i]>maxx) maxx=arrx[i];
-            if(arry[i]>maxy) maxy=arry[i];
-            cout<<minx<<' '<<maxx<<' '<<miny<<' '<<maxy<<endl;
-            int area=(maxx-minx)*(maxy-miny);
-            if(area<minarea) minarea=area;
+            if(arrx[j]<minx) minx=arrx[j];
+            if(arry[j]<miny) miny=arry[j];
+            if(arrx[j]>maxx) maxx=arrx[j];
+            if(arry[j]>maxy) maxy=arry[j];
           }
         }
+        int area=(maxx-minx)*(maxy-miny);
+        if(area<minarea) minarea=area;
     }
     cout<<minarea;
     return 0;
