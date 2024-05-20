@@ -45,6 +45,7 @@ int main() {
             {ckch[pe[i].cheese]=1;}
         }
     }
+    bool ckpe[101]={0};
     for(int i=1;i<=m;i++)
     {
         int cnt=0;
@@ -55,7 +56,8 @@ int main() {
             {
                 if(sick[pe[j].n]>0)
                 {
-                    cnt++;
+                    if(ckpe[pe[j].n]==0)
+                    {cnt++; ckpe[pe[j].n]=1;}
                 }
             }
         }
@@ -65,13 +67,15 @@ int main() {
         }
     }
     int max=0;
+    int ckper[101]={0,};
     for(int i=1;i<=m;i++)
     {
         int cnt=0;
         for(int j=0;j<d;j++)
         {
-            if(pe[j].cheese==i&&ckch[i]==1)
+            if(pe[j].cheese==i&&ckch[i]==1&&ckper[pe[j].n]==0)
             {
+                ckper[pe[j].n]=1;
                 cnt++;
             }
         }
