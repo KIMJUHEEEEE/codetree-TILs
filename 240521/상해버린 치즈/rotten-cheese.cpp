@@ -70,7 +70,7 @@ int main() {
         int cnt=0;
         for(int j=0;j<d;j++)
         {
-            if(pe[j].cheese==ckch[i])
+            if(pe[j].cheese==i)
             {
                 cnt++;
             }
