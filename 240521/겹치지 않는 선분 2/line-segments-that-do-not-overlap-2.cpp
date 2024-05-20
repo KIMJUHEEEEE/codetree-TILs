@@ -12,11 +12,12 @@ int main() {
     {
         cin>>arrx1[i]>>arrx2[i];
     }
-    for(int i=0;i<n-1;i++)
+    for(int i=0;i<n;i++)
     {
-        for(int j=i+1;j<n;j++)
+        for(int j=0;j<n;j++)
         {
-         if(arrx1[j]<arrx2[i]&&arrx1[j]>arrx1[i])
+         if(i==j) continue;
+         if(arrx2[j]<arrx2[i]&&arrx1[j]>arrx1[i])
          {
             ck[j]=1;
             ck[i]=1;
