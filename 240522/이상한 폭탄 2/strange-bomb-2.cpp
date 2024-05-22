@@ -24,6 +24,7 @@ int main() {
             }
         }
     }
+    if(max==0) max=-1;
     cout<<max;
     return 0;
 }
