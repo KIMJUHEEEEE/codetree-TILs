@@ -21,6 +21,7 @@ int main() {
             if(i==j) {
                 sum+=arr[i][0]/2+arr[i][1];
                 cnt++;
+                if(sum>b) cnt--;
                 continue;
             }
             int tmpsum=sum+arr[j][0]+arr[j][1];
