@@ -3,32 +3,32 @@ using namespace std;
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    int k,n;
-    int arr[11][21]={0,};
-    int price[11][21]={0,};
-    cin>>k>>n;
-    for(int i=0;i<k;i++)
+    int k, n;
+    int arr[11][21] = { 0, };
+    int price[11][22] = { 0, };
+    cin >> k >> n;
+    for (int i = 0; i < k; i++)
     {
-        for(int j=0;j<n;j++)
+        for (int j = 0; j < n; j++)
         {
-            cin>>arr[i][j];
-            price[i][arr[i][j]]=j;
+            cin >> arr[i][j];
+            price[i][arr[i][j]] = j+1;
         }
     }
-    int ans=0;
-    for(int i=0;i<n-1;i++)
+    int ans = 0;
+    for (int i = 1; i < n ; i++)
     {
-        for(int j=i+1;j<n;j++)
+        for (int j = i + 1; j < n+1; j++)
         {
-            int cnt=0;
-            for(int l=0;l<k;l++)
+            int cntbig = 0; int cntsmall = 0;
+            for (int l = 0; l < k; l++)
             {
-                if(price[l][i]<price[l][j]) cnt++;
+                if (price[l][i] < price[l][j]) cntbig++;
+                if (price[l][i] > price[l][j]) cntsmall++;
             }
-            if(cnt==k) ans++;
+            if (cntbig == k||cntsmall==k) ans++;
         }
     }
-    if(k==1) ans=n*(n-1)/2;
-    cout<<ans;
+    cout << ans;
     return 0;
 }
