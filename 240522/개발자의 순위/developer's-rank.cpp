@@ -28,6 +28,7 @@ int main() {
             if(cnt==k) ans++;
         }
     }
+    if(k==1) ans=n*(n-1)/2;
     cout<<ans;
     return 0;
 }
