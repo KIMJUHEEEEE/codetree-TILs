@@ -19,7 +19,7 @@ int main() {
             {
                 if(j-i<=k)
                 {
-                    if(max<j) max=arr[i];
+                    if(max<arr[j]) max=arr[i];
                 }
             }
         }
