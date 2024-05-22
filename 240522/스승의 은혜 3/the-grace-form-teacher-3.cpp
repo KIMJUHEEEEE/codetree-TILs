@@ -9,11 +9,7 @@ class present{
 };
 bool cmp(present a, present b)
 {
-    if(a.price==b.price)
-    {
-        return a.deli<b.deli;
-    }
-    return a.price<b.price;
+    return a.price+a.deli<b.price+b.deli;
 }
 int main() {
     // 여기에 코드를 작성해주세요.
