@@ -13,10 +13,10 @@ int main() {
         cin>>a>>b>>c;
         for(int j=0;j<3;j++)
         {
-            int tmp=arr[j][a];
-            arr[j][a]=arr[j][b];
-            arr[j][b]=tmp;
-            if(arr[j][c]==1) score[j]++;
+            int tmp=arr[j][a-1];
+            arr[j][a-1]=arr[j][b-1];
+            arr[j][b-1]=tmp;
+            if(arr[j][c-1]==1) score[j]++;
         }
 
     }
