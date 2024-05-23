@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 int main() {
@@ -7,21 +6,30 @@ int main() {
     int n;
     cin>>n;
     int arr[101]={0,};
+    int min=9999;
+    int max=0;
     for(int i=0;i<n;i++)
     {
         cin>>arr[i];
+        if(arr[i]<min) min=arr[i];
+        if(arr[i]>max) max=arr[i];
     }
-    sort(arr,arr+n);
     int ans=0;
-    for(int i=0;i<n-1;i++)
+    
+    for(int kk=min;kk<max;kk++)
     {
-        for(int j=i+1;j<n;j++)
+        int cnt=0;
+        for(int i=0;i<n-1;i++)
         {
-            for(int k=arr[i];k<arr[j];k++)
+            for(int j=i+1;j<n;j++)
             {
-                if(k-arr[i]==arr[j]-k) ans++;
+                if(kk-arr[i]==arr[j]-kk) 
+                {
+                    cnt++;
+                }
             }
         }
+        if(ans<cnt) ans=cnt;
     }
     cout<<ans;
     return 0;
