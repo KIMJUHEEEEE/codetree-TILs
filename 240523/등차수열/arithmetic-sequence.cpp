@@ -17,9 +17,9 @@ int main() {
     {
         for(int j=i+1;j<n;j++)
         {
-            if((arr[i]+arr[j])%2==0)
+            for(int k=arr[i];k<arr[j];k++)
             {
-                ans++;
+                if(k-arr[i]==arr[j]-k) ans++;
             }
         }
     }
