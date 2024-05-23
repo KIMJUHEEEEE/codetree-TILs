@@ -9,11 +9,9 @@ int main() {
     int max=0;
     for(int i=0;i<1000;i++)
     {
-        int sum=a*i;
-        if(sum>c) break;
         for(int j=0;j<1000;j++)
         {
-            sum+=b*j;
+            int sum=a*i+b*j;
             if(sum>c) break;
             if(sum<=c&&max<sum)
             {
