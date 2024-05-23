@@ -15,9 +15,9 @@ int main() {
     for(int i=0;i<n;i++)
     {
         arr[i]*=2;
-        int sum=0;
         for(int j=0;j<n;j++)
         {
+            int sum=0;
             if(i==j) continue;
             else
             {
@@ -31,6 +31,11 @@ int main() {
                 {
                     sum=sum+abs(v[k+1]-v[k]);
                 }
+                // for(int k=0;k<v.size();k++)
+                // {
+                //     cout<<v[k]<<' ';
+                // }
+                // cout<<sum<<endl;
             }
         if(min>sum) min=sum;
         }
