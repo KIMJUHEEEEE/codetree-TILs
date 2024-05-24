@@ -5,23 +5,23 @@ int main() {
     // 여기에 코드를 작성해주세요.
     int n,m;
     cin>>n>>m;
-    int arr[11][11]={0,};
+    int arra[11]={0,};
+    int arrb[11]={0,};
     for(int i=0;i<m;i++)
     {
-        int a,b;
-        cin>>a>>b;
-        arr[a][b]++;
-        arr[b][a]++;
+        cin>>arra[i]>>arrb[i];
     }
     int max=0;
     for(int i=1;i<=n;i++)
     {
         for(int j=1;j<=n;j++)
-        {
-            if(max<arr[i][j])
+        { int cnt=0;
+            for(int k=0;k<m;k++)
             {
-                max=arr[i][j];
+                if(arra[k]==i&&arrb[k]==j) cnt++;
+                else if(arra[k]==j&&arrb[k]==i) cnt++;
             }
+            if(max<cnt) max=cnt;
         }
     }
     cout<<max;
