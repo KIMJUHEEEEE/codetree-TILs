@@ -15,7 +15,7 @@ int main() {
     {
         int sum=0;
         int tmp=i;
-        for(int j=0;j<3;j++)
+        for(int j=0;j<m;j++)
         {
          sum+=arr[tmp];
          tmp=arr[tmp]-1;   
