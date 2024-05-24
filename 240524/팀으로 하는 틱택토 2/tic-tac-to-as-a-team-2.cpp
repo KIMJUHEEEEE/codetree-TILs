@@ -124,7 +124,7 @@ int main() {
     b = 0;
     for (int j = 0; j < 10; j++)
     {
-        if (cnt[j] > 0)
+        if (cnt2[j] > 0)
         {
             num++;
             if (a == 0) a = j;
