@@ -5,8 +5,8 @@ int main() {
     // 여기에 코드를 작성해주세요.
     int n,m;
     cin>>n>>m;
-    int arra[11]={0,};
-    int arrb[11]={0,};
+    int arra[101]={0,};
+    int arrb[101]={0,};
     for(int i=0;i<m;i++)
     {
         cin>>arra[i]>>arrb[i];
