@@ -17,11 +17,13 @@ int main() {
         int tmp[1001]={0,};
         int tmpa=a;
         int cnt=0;
+        bool ck[1001]={0,};
         for(int i=0;i<n;i++)
         {
             tmp[i]=tmpa;
+            ck[tmpa]=1;
             tmpa=sum[i]-tmp[i];
-            if(tmp[i]==tmpa) break;
+            if(tmp[i]==tmpa||tmpa==0||ck[tmpa]==1) break;
             cnt++;
         }
         if(cnt==n)
