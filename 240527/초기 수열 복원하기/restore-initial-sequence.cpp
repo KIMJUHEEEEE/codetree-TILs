@@ -6,7 +6,7 @@ int main() {
     int n;
     cin>>n;
     int arr[1001]={0,};
-    int sum[1000]={0,};
+    int sum[1001]={0,};
     for(int i=0;i<n-1;i++)
     {
         cin>>sum[i];
