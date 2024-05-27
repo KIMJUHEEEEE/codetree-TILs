@@ -15,7 +15,7 @@ int main() {
         if(max<arr[i]) max=arr[i];
     }
     sort(arr,arr+n);
-    int ans=99999;
+    int ans=9999999;
     for(int i=min;i<=max-17;i++)
     {
         int sum=0;
