@@ -20,10 +20,11 @@ int main() {
         bool ck[1001]={0,};
         for(int i=0;i<n;i++)
         {
+            if (ck[tmpa] == 1) break;
             tmp[i]=tmpa;
             ck[tmpa]=1;
             tmpa=sum[i]-tmp[i];
-            if(tmp[i]==tmpa||tmpa==0||ck[tmpa]==1) break;
+            if(tmp[i]==tmpa||tmpa==0) break;
             cnt++;
         }
         if(cnt==n)
