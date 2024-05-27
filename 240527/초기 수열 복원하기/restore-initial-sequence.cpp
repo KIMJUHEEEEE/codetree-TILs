@@ -12,7 +12,7 @@ int main() {
         cin>>sum[i];
     }
    
-    for(int a=1;a<=n;a++)
+    for(int a=1;a<n;a++)
     {
         int tmp[1001]={0,};
         int tmpa=a;
@@ -24,10 +24,10 @@ int main() {
             tmp[i]=tmpa;
             ck[tmpa]=1;
             tmpa=sum[i]-tmp[i];
-            if(tmpa<=0) break;
+            if(tmpa<=0||tmpa>n) break;
             cnt++;
         }
-        if(cnt==n-1&&tmp[n-1]>0)
+        if(cnt==n-1||tmp[n-1]>0)
         {
             for(int i=0;i<n;i++)
             {
