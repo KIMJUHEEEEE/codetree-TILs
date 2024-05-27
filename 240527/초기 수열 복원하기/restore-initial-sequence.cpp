@@ -24,10 +24,10 @@ int main() {
             tmp[i]=tmpa;
             ck[tmpa]=1;
             tmpa=sum[i]-tmp[i];
-            if(tmp[i]==tmpa||tmpa==0) break;
+            if(tmpa<=0) break;
             cnt++;
         }
-        if(cnt==n)
+        if(cnt==n-1&&tmp[n-1]>0)
         {
             for(int i=0;i<n;i++)
             {
