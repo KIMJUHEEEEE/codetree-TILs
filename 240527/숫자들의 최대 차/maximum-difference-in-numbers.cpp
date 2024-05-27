@@ -16,6 +16,7 @@ int main() {
         if(min>a) min=a;
     }
     int ans=0;
+    if(max-k<min) {ans=n; cout<<ans; return 0;}
     for(int i=min;i<=max-k;i++)
     {
         int sum=0;
