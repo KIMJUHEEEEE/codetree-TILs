@@ -7,7 +7,7 @@ int main() {
     int n, k;
     cin >> n >> k;
     int arr[101] = { 0, };
-    int cnt[101] = { 0, };
+    int cnt[1000001] = { 0, };
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
