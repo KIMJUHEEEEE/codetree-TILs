@@ -22,7 +22,7 @@ void find(int pidx, int i, int cnt, int m,  int max)
         int num = sum[i + j] - sum[previdx];
         if (num > max) max = num;
         previdx = i + j;
-        if (previdx > n) break;
+        if (previdx > n||i+j>n) return;
         find(previdx, i + j+1, cnt + 1, m, max);
         previdx = pidx;
     }
