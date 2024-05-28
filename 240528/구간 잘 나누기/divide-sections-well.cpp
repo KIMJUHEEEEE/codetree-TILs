@@ -12,7 +12,7 @@ int main() {
     }
     
     int ans=9999999;
-    for(int i=1;i<=1000;i++)
+    for(int i=1;i<=10000;i++)
     {
         bool possible=true;
         int num=1;
