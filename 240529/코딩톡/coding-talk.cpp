@@ -19,17 +19,18 @@ int main() {
             ck[int(c) - 65] = 1;
         }
     }
-    for(int i=1;i<m;i++)
+    for (int i = 1; i < m; i++)
     {
-        for(int j=i+1;j<=m;j++)
+        for (int j = i + 1; j <= m; j++)
         {
-            if(num[i]==num[j]&&num[i]==num[p])
+            if (num[i] == num[j] && num[i] == num[p])
             {
-                ck[int(person[i])-65]=1;
-                ck[int(person[j])-65]=1;
+                ck[int(person[i]) - 65] = 1;
+                ck[int(person[j]) - 65] = 1;
             }
         }
     }
+    if (num[p] == 0) return 0;
     for (int i = 0; i < n; i++)
     {
         if (ck[i] == 0)
