@@ -23,8 +23,9 @@ int main() {
     }
 
     int min_ans = INT_MAX;
-    int r = min_num + k;
+
     for (int l = min_num; l <= max_num; l++) {
+        int r = l + k;
         if (r - l <= k && r - l >= 0) {
             int cost = 0;
             for (int i = 0; i < n; i++) {
