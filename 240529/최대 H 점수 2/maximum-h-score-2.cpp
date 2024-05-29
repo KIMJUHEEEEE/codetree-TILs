@@ -21,6 +21,7 @@ int main() {
         copy(arr, arr + n, tmp);
         for (int j = 0; j < n; j++)//배열
         {
+            copy(arr, arr + n, tmp);
             if (tmp[j] >= i-1)
             {
                 if (l > 0)
