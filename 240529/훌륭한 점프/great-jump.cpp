@@ -5,7 +5,7 @@ int IsPossible(int arr[], int a, int n, int k)
 {
     int available_indices[101] = { 0, };
     int cnt = 0;
-    int maxi;
+    int maxi=0;
     for (int i = 0; i < n; i++) {
         if (arr[i] <= a)
         {
