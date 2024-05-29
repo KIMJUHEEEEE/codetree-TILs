@@ -12,7 +12,7 @@ int IsPossible(int arr[], int a, int n, int k)
             available_indices[cnt++] = i;
             maxi = max(maxi, arr[i]);
         }
-        else if (i == 0 && arr[i] > a)
+        else if (i == 0 && arr[i] > a||i==n-1)
         {
             return 101;
         }
