@@ -1,63 +1,41 @@
 #include <iostream>
 #include <algorithm>
+#include <climits>
+#define MAX_N 100
+#define MAX_NUM 10000
+#define MIN_NUM 1
+
 using namespace std;
 
+int n, k;
+int arr[MAX_N];
+
 int main() {
-    // 여기에 코드를 작성해주세요.
-    int n, k;
     cin >> n >> k;
-    int arr[101] = { 0, };
-    int cnt[10001] = { 0, };
-    for (int i = 0; i < n; i++)
-    {
+
+    int max_num = MIN_NUM;
+    int min_num = MAX_NUM;
+    for (int i = 0; i < n; i++) {
         cin >> arr[i];
-        cnt[arr[i]]++;
+        max_num = max(arr[i], max_num);
+        min_num = min(arr[i], min_num);
+
     }
-    int ans = 0;
-    int tmp[101];
-    for (int i = 0; i < 10000; i++)
-    {
-        sort(arr, arr + n);
 
-        copy(arr, arr + n, tmp);
-        int num = i; 
-        int cpcnt[10001];
-        copy(cnt, cnt + 10001, cpcnt);
-        while (num >= 0)
-        {
-
-            if (cpcnt[tmp[0]] <= cpcnt[tmp[n - 1]])
-            {
-                int a = cpcnt[tmp[0]];
-                cpcnt[tmp[0]] = 0;
-                for (int j = 0; j < a; j++)
-                {
-                    tmp[j] += 1;
-                    cpcnt[tmp[j]]++;
-                    num--;
-                    if (num < 0) break;
-                }
-                //sort(arr,arr+n);
+    int min_ans = INT_MAX;
+    int r = min_num + k;
+    for (int l = min_num; l <= max_num; l++) {
+        if (r - l <= k && r - l >= 0) {
+            int cost = 0;
+            for (int i = 0; i < n; i++) {
+                if (l >= arr[i] || arr[i] >= r)
+                    cost += min(abs(l - arr[i]), abs(arr[i] - r));
             }
-            else {
-                int a = cpcnt[tmp[n - 1]];
-                cpcnt[tmp[n - 1]] = 0;
-                for (int j = 0; j < a; j++)
-                {
-                    tmp[n - 1 - j] -= 1;
-                    cpcnt[tmp[n - 1 - j]]++;
-                    num--;
-                    if (num < 0) break;
-                }
-            }
-        }
-        sort(tmp, tmp + n);
-        if (tmp[n - 1] - tmp[0] <= k)
-        {
-            ans = i+1;
-            break;
+            min_ans = min(min_ans, cost);
         }
     }
-    cout << ans;
+
+    cout << min_ans;
+
     return 0;
 }
