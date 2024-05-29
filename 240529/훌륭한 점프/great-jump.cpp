@@ -33,7 +33,7 @@ int main() {
         if(idx<arr[i]) idx=arr[i];
     }
     int ans=0;
-    for(int i=1;i<idx;i++)
+    for(int i=1;i<101;i++)
     {
         if(cnt[i]==0) continue;
         if(IsPossible(arr,i,n,k))
