@@ -31,7 +31,7 @@ int main() {
             }
         }
     }
-    if((ry==by&&ry==ly)||(rx==bx&&rx==lx))
+    if((ry==by&&ry==ly&&rx<bx&&rx>lx)||(rx==bx&&rx==lx&&ry>ly&&ry<by)||(ry==by&&ry==ly&&rx>bx&&rx<lx)||(rx==bx&&rx==lx&&ry<ly&&ry>by))
     {
         cout<<abs(lx-bx)+abs(ly-by)+1;
     }
