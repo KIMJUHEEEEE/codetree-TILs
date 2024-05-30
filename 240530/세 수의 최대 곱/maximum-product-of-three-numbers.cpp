@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 int main() {
@@ -10,17 +11,22 @@ int main() {
     {
         cin>>arr[i];
     }
-    long long maxi=-1000000000;
-    for(int i=0;i<n-2;i++)
+    sort(arr,arr+n);
+    long long maxi=arr[0]*arr[1]*arr[2];
+    if(n==3)
     {
-        for(int j=i+1;j<n-1;j++)
-        {
-            for(int k=j+1;k<n;k++)
-            {
-                long long mul=arr[i]*arr[j]*arr[k];
-                maxi=max(maxi,mul);
-            }
-        }
+        cout<<maxi;
+        return 0;
+    }
+    if(arr[n-1]>0&&arr[n-2]>0&&arr[n-3]>0)
+    {
+        long long multi=arr[n-1]*arr[n-2]*arr[n-3];
+        maxi=max(maxi,multi);
+    }
+    if(arr[0]<0&&arr[1]<0&&arr[n-1]>0)
+    {
+        long long multi=arr[0]*arr[1]*arr[n-1];
+        maxi=max(maxi,multi);
     }
     cout<<maxi;
     return 0;
