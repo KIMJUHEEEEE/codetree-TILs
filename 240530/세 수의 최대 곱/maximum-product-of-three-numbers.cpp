@@ -17,7 +17,7 @@ int main() {
         {
             for(int k=j+1;k<n;k++)
             {
-                int mul=arr[i]*arr[j]*arr[k];
+                long long mul=arr[i]*arr[j]*arr[k];
                 if(mul>0)
                 {
                     maxi=max(maxi,mul);
