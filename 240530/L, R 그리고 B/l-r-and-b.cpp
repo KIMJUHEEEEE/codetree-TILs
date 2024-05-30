@@ -8,6 +8,8 @@ int main() {
     int ly=0;
     int bx=0;
     int by=0;
+    int rx=0;
+    int ry=0;
     for(int i=0;i<10;i++)
     {
         for(int j=0;j<10;j++)
@@ -22,8 +24,17 @@ int main() {
             {
                 lx=j;ly=i;
             }
+            if(arr[i][j]=='R')
+            {
+                rx=j;
+                ry=i;
+            }
         }
     }
-    cout<<abs(lx-bx)+abs(ly-by)-1;
+    if((ry==by&&ry==ly)||(rx==bx&&rx==lx))
+    {
+        cout<<abs(lx-bx)+abs(ly-by)+1;
+    }
+    else cout<<abs(lx-bx)+abs(ly-by)-1;
     return 0;
 }
