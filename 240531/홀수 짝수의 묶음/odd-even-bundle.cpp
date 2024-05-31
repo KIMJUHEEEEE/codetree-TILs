@@ -34,7 +34,7 @@ int main() {
     }
     else if(jjak>hol)
     {
-        if(jjak%2==0) cout<<hol*2;
+        if((jjak-hol)%2==1) cout<<hol*2;
         else cout<<hol*2+1;
     }
     else if(hol==0||hol==2)
