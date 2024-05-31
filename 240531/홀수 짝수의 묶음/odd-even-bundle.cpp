@@ -15,6 +15,7 @@ int main() {
         if(arr[i]%2==0) jjak++;
         else hol++;
     }
+    //cout<<hol<<' '<<jjak<<endl;
     if(hol==jjak)
     {
         cout<<n;
@@ -30,7 +31,7 @@ int main() {
         int tmp=hol-jjak;
         if(tmp%3==0) sum=jjak*2+tmp/3*2;
         else if(tmp%3==1) sum=hol+(hol-jjak+1)*2;
-        else sum=jjak+hol/2;
+        else sum=jjak*2+tmp/3*2+1;
         cout<<sum;
     }
     else if(jjak>hol)
