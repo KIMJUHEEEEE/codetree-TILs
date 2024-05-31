@@ -32,6 +32,11 @@ int main() {
         else sum+=hol/3*2+1;
         cout<<sum;
     }
+    else if(jjak>hol)
+    {
+        if(jjak%2==0) cout<<hol*2;
+        else cout<<hol*2+1;
+    }
     else if(hol==0||hol==2)
     {
         cout<<1;
