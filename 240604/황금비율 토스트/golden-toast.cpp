@@ -40,7 +40,8 @@ int main() {
         }
         else if(c=='D')
         {
-            l.erase(it);
+            if(it!=l.end())
+            {l.erase(it);}
 
         }
     }
