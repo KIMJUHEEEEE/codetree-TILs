@@ -41,7 +41,7 @@ int main() {
         else if(c=='D')
         {
             if(it!=l.end())
-            {l.erase(it);}
+            {it=l.erase(it);}
 
         }
     }
