@@ -1,45 +1,53 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include<iostream>
+#include<vector>
+#include<string>
+
 using namespace std;
 
 int main() {
-    // 여기에 코드를 작성해주세요.
     int n;
-    cin>>n;
-    int maxsize=0;
-    vector<string> arr;
-    for(int i=0;i<n;i++)
-    {
-        string s;
-        cin>>s;
-        arr.push_back(s);
-        maxsize=max(maxsize,(int)s.size());
-    }
-    int cnt=0;
-    while(1)
-    {
-        if(cnt==maxsize)
+    cin >> n;
+    vector<string> v(n);
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+        if (v[i].size() < 6)
         {
-            break;
-        }
-        for(int i=0;i<n-1;i++)
-        {
-            for(int j=i+1;j<n;j++)
+            string str = "";
+            for (int j = 0; j < 6 - v[i].size(); j++)
             {
-                if (arr[i][arr[i].size()-1-cnt]>arr[j][arr[j].size()-1-cnt])
-                {
-                    string tmp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = tmp;
-                }
+                str += "0";
+            }
+            str += v[i];
+            v[i] = str;
+        }
+    }
+    for (int k = 0; k < 6; k++) {
+        vector<vector<string>> new_v(10);
+        for (int i = 0; i < n; i++) {
+                char digit = v[i][v[i].size() - k - 1];
+                new_v[(int)digit - '0'].push_back(v[i]);
+        }
+        vector<string> store_v;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < new_v[i].size(); j++) {
+                store_v.push_back(new_v[i][j]);
             }
         }
-        cnt++;
+        v = store_v;
     }
-    for(int i=0;i<n;i++)
-    {
-        cout<<arr[i]<<' ';
+    for (int i = 0; i < n; i++) {
+        bool ck=0;
+        for(int j=0;j<6;j++)
+        {
+            if(v[i][j]!='0')
+            {
+                ck=1;
+            }
+            if(ck==1)
+            {
+                cout<<v[i][j];
+            }
+        }
+        cout<<' ';
     }
-    return 0;
 }
