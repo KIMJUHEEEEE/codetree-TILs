@@ -27,6 +27,8 @@ int main() {
             }
         }
     }
-    cout<<"Yes";
+    if(s.empty()==true)
+        cout<<"Yes";
+    else cout<<"No";
     return 0;
 }
