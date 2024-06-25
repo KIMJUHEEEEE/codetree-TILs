@@ -13,6 +13,8 @@ int main() {
         }
     }
     int ans=0;
+    if(m==1) ans=2*n;
+    else{
     for(int i=0;i<n;i++)
     {
         int cnt=0;
@@ -49,6 +51,7 @@ int main() {
             }
             else cnt=0;
         }
+    }
     }
     cout<<ans;
     return 0;
