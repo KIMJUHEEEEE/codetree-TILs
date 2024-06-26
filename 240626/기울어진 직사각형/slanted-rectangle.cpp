@@ -17,36 +17,79 @@ int main() {
         }
     }
     int ans = 0;
-    for (int c= 1; c < n - 1; c++)
+    for (int i = 2; i < n; i++)
     {
-        int x = n - 1;
-        int y = c;
-        int sum = arr[x][y];
-        int map[22][22] = { 0, };
-        map[x][y] = 1;
-        for (int a = 0; a < 4; a++)
+        for (int j = 1; j < n - 1; j++)
         {
-            while (1)
+            int x = i;
+            int y = j;
+            int sum = arr[x][y];
+            int map[22][22] = { 0, };
+            map[x][y] = 1;
+            int cnta = 0;
+            int cntb = 0;
+            for (int a = 0; a < 4; a++)
             {
-                x += dx[a];
-                y += dy[a];
-                if (x >= n || x < 0 || y < 0 || y >= n || map[x][y] == 1)
+                while (1)
                 {
-                    x -= dx[a];
-                    y -= dy[a];
-                    break;
-                }
-                else
-                {
-                    if (map[x][y] == 0)
+                    if (a == 0) cnta++;
+                    if (a == 1) cntb++;
+                    if (a == 2)
                     {
-                        sum += arr[x][y];
-                        map[x][y] = 1;
+                        if (cnta == 0) break;
+                        cnta--;
+                    }
+                    if (a == 3)
+                    {
+                        if (cntb == 0) break;
+                        cntb--;
+                    }
+                    x += dx[a];
+                    y += dy[a];
+                    if (a == 0 && x == 0)
+                    {
+                        cnta--;
+                        x -= dx[a];
+                        y -= dy[a];
+                        break;
+                    }
+                    else if (a == 1 && y == 0)
+                    {
+                        cntb--;
+                        x -= dx[a];
+                        y -= dy[a];
+                        break;
+                    }
+                    else if (a == 2 && x == n - 1)
+                    {
+                        x -= dx[a];
+                        y -= dy[a];
+                        break;
+                    }
+                    else if (a == 3 && y == n - 1)
+                    {
+                        x -= dx[a];
+                        y -= dy[a];
+                        break;
+                    }
+                    if (x >= n || x < 0 || y < 0 || y >= n || map[x][y] == 1)
+                    {
+                        x -= dx[a];
+                        y -= dy[a];
+                        break;
+                    }
+                    else
+                    {
+                        if (map[x][y] == 0)
+                        {
+                            sum += arr[x][y];
+                            map[x][y] = 1;
+                        }
                     }
                 }
             }
+            ans = max(ans, sum);
         }
-        ans = max(ans, sum);
     }
     cout << ans;
     return 0;
