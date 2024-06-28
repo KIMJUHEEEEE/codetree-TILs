@@ -29,7 +29,7 @@ int main() {
                     {
                         for(int d=0;d<=b;d++)
                         {
-                            if(arr[i+c][j+d]<0)
+                            if(arr[i+c][j+d]<=0)
                             {
                                 check=0;
                                 break;
