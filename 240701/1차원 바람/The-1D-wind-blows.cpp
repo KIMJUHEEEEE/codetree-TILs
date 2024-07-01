@@ -46,7 +46,6 @@ int main() {
             bool move = 0;
             while (1)
             {
-                if (lowu < 0 && lowd >= n) break;
                 bool correct = 0;
                 if(lowu>0)
                 {for (int j = 0; j < m; j++)
