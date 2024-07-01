@@ -117,6 +117,7 @@ int main() {
             bool move=0;
             while (1)
             {
+                if (lowu < 0 && lowd >= n) break;
                 bool correct = 0;
                 for (int j = 0; j < m; j++)
                 {
@@ -131,12 +132,10 @@ int main() {
                     if (ck == 0)
                     {
                         moveleft(lowu - 1);
-                        move=1;
                     }
                     else
                     {
                         moveright(lowu - 1);
-                        move=1;
                     }
                     lowu--;
                 }
@@ -161,7 +160,6 @@ int main() {
                     }
                     lowd++;
                 }
-                if (correct == 0 && correct1 == 0) break;
                 if (move == 1)
                 {
                     if (ck == 0)
