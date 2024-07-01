@@ -47,54 +47,56 @@ int main() {
             while (1)
             {
                 bool correct = 0;
-                if(lowu>0)
-                {for (int j = 0; j < m; j++)
+                if (lowu > 0)
                 {
-                    if (arr[lowu][j] == arr[lowu - 1][j])
+                    for (int j = 0; j < m; j++)
                     {
-                        correct = 1;
-                        break;
+                        if (arr[lowu][j] == arr[lowu - 1][j])
+                        {
+                            correct = 1;
+                            break;
+                        }
                     }
-                }
-                if (correct == 1 && lowu - 1 >= 0)
-                {
-                    if (ck == 0)
+                    if (correct == 1 && lowu - 1 >= 0)
                     {
-                        moveleft(lowu - 1);
-                        move = 1;
+                        if (ck == 0)
+                        {
+                            moveleft(lowu - 1);
+                            move = 1;
+                        }
+                        else
+                        {
+                            moveright(lowu - 1);
+                            move = 1;
+                        }
+                        lowu--;
                     }
-                    else
-                    {
-                        moveright(lowu - 1);
-                        move = 1;
-                    }
-                    lowu--;
-                }
                 }
                 bool correct1 = 0;
-                if(lowd<n-1)
-                {for (int j = 0; j < m; j++)
+                if (lowd < n - 1)
                 {
-                    if (arr[lowd][j] == arr[lowd + 1][j])
+                    for (int j = 0; j < m; j++)
                     {
-                        correct1 = 1;
-                        break;
+                        if (arr[lowd][j] == arr[lowd + 1][j])
+                        {
+                            correct1 = 1;
+                            break;
+                        }
                     }
-                }
-                if (correct1 == 1 && lowd + 1 >= 0)
-                {
-                    if (ck == 0)
+                    if (correct1 == 1 && lowd + 1 >= 0)
                     {
-                        moveleft(lowd + 1);
-                        move = 1;
+                        if (ck == 0)
+                        {
+                            moveleft(lowd + 1);
+                            move = 1;
+                        }
+                        else
+                        {
+                            moveright(lowd + 1);
+                            move = 1;
+                        }
+                        lowd++;
                     }
-                    else
-                    {
-                        moveright(lowd + 1);
-                        move = 1;
-                    }
-                    lowd++;
-                }
                 }
                 if (correct == 0 && correct1 == 0) break;
                 if (move == 1)
@@ -117,55 +119,62 @@ int main() {
             int lowd = a - 1;
             moveleft(lowu);
             bool ck = 1;//왼쪽
-            bool move=0;
+            bool move = 0;
             while (1)
             {
                 bool correct = 0;
-                if(lowu>0)
-                {for (int j = 0; j < m; j++)
+                if (lowu > 0)
                 {
-                    if (arr[lowu][j] == arr[lowu - 1][j])
+                    for (int j = 0; j < m; j++)
                     {
-                        correct = 1;
-                        break;
+                        if (arr[lowu][j] == arr[lowu - 1][j])
+                        {
+                            correct = 1;
+                            break;
+                        }
                     }
-                }
-                if (correct == 1 && lowu - 1 >= 0)
-                {
-                    if (ck == 0)
+                    if (correct == 1 && lowu - 1 >= 0)
                     {
-                        moveleft(lowu - 1);
+                        if (ck == 0)
+                        {
+                            moveleft(lowu - 1);
+                            move = 1;
+                        }
+                        else
+                        {
+                            moveright(lowu - 1);
+                            move = 1;
+                        }
+                        lowu--;
                     }
-                    else
-                    {
-                        moveright(lowu - 1);
-                    }
-                    lowu--;
-                }
                 }
                 bool correct1 = 0;
-                if(lowd<n-1)
-                {for (int j = 0; j < m; j++)
+                if (lowd < n - 1)
                 {
-                    if (arr[lowd][j] == arr[lowd + 1][j])
+                    for (int j = 0; j < m; j++)
                     {
-                        correct1 = 1;
-                        break;
+                        if (arr[lowd][j] == arr[lowd + 1][j])
+                        {
+                            correct1 = 1;
+                            break;
+                        }
+                    }
+                    if (correct1 == 1 && lowd + 1 >= 0)
+                    {
+                        if (ck == 0)
+                        {
+                            moveleft(lowd + 1);
+                            move = 1;
+                        }
+                        else
+                        {
+                            moveright(lowd + 1);
+                            move = 1;
+                        }
+                        lowd++;
                     }
                 }
-                if (correct1 == 1 && lowd + 1 >= 0)
-                {
-                    if (ck == 0)
-                    {
-                        moveleft(lowd + 1);
-                    }
-                    else
-                    {
-                        moveright(lowd + 1);
-                    }
-                    lowd++;
-                }
-                }
+                if(correct==0&&correct1==0) break;
                 if (move == 1)
                 {
                     if (ck == 0)
