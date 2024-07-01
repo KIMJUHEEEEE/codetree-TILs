@@ -48,7 +48,8 @@ int main() {
             {
                 if (lowu < 0 && lowd >= n) break;
                 bool correct = 0;
-                for (int j = 0; j < m; j++)
+                if(lowu>0)
+                {for (int j = 0; j < m; j++)
                 {
                     if (arr[lowu][j] == arr[lowu - 1][j])
                     {
@@ -70,8 +71,10 @@ int main() {
                     }
                     lowu--;
                 }
+                }
                 bool correct1 = 0;
-                for (int j = 0; j < m; j++)
+                if(lowd<n-1)
+                {for (int j = 0; j < m; j++)
                 {
                     if (arr[lowd][j] == arr[lowd + 1][j])
                     {
@@ -92,6 +95,7 @@ int main() {
                         move = 1;
                     }
                     lowd++;
+                }
                 }
                 if (correct == 0 && correct1 == 0) break;
                 if (move == 1)
@@ -119,7 +123,8 @@ int main() {
             {
                 if (lowu < 0 && lowd >= n) break;
                 bool correct = 0;
-                for (int j = 0; j < m; j++)
+                if(lowu>0)
+                {for (int j = 0; j < m; j++)
                 {
                     if (arr[lowu][j] == arr[lowu - 1][j])
                     {
@@ -139,8 +144,10 @@ int main() {
                     }
                     lowu--;
                 }
+                }
                 bool correct1 = 0;
-                for (int j = 0; j < m; j++)
+                if(lowd<n-1)
+                {for (int j = 0; j < m; j++)
                 {
                     if (arr[lowd][j] == arr[lowd + 1][j])
                     {
@@ -159,6 +166,7 @@ int main() {
                         moveright(lowd + 1);
                     }
                     lowd++;
+                }
                 }
                 if (move == 1)
                 {
