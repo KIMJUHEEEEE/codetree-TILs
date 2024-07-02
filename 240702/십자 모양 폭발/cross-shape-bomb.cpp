@@ -2,7 +2,7 @@
 using namespace std;
 int dx[4]={1,0,-1,0};
 int dy[4]={0,1,0,-1};
-int arr[201][201]={0,};
+int arr[211][211]={0,};
 int n;
 void down()
 {
@@ -40,6 +40,7 @@ int main() {
         return 0;
     }
     int num=arr[r][c];
+    //cout<<num<<endl;
     arr[r][c]=0;
 
     for(int i=0;i<4;i++)
