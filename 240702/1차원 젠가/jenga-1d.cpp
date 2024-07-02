@@ -6,6 +6,7 @@ int main() {
     int n;
     cin >> n;
     int arr[101] = { 0, };
+    int cparr[101]={0,};
     for (int i = 1; i <= n; i++)
     {
         cin >> arr[n - i];
@@ -16,42 +17,34 @@ int main() {
     {
         arr[n - i] = 0;
     }
-    for (int i = n - 1; i > 0; i--)
+    int a=0;
+    for(int i=0;i<n;i++)
     {
-        if (arr[i] != 0 && arr[i - 1] == 0)
+        if(arr[i]!=0)
         {
-            arr[i - 1] = arr[i];
-            arr[i] = 0;
-            n--;
+            cparr[a]=arr[i];
+            a++;
         }
     }
-    int cnt = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] != 0) cnt++;
-    }
+    arr[101]={0,};
     cin >> s >> e;
-    n = cnt;
+    n = a;
     for (int i = s; i <= e; i++)
     {
-        arr[n - i] = 0;
+        cparr[n - i] = 0;
     }
-    for (int i = n - 1; i > 0; i--)
+    arr[101]={0,};
+    int b=0;
+    for(int i=0;i<a;i++)
     {
-        if (arr[i] != 0 && arr[i - 1] == 0)
+        if(cparr[i]!=0)
         {
-            arr[i - 1] = arr[i];
-            arr[i] = 0;
-            n--;
+            arr[b]=cparr[i];
+            b++;
         }
     }
-    cnt = 0;
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] != 0) cnt++;
-    }
-    cout << cnt << endl;
-    for (int i = cnt - 1; i >= 0; i--)
+    cout << b << endl;
+    for (int i = b - 1; i >= 0; i--)
     {
         cout << arr[i] << endl;
     }
