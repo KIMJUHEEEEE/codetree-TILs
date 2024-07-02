@@ -8,13 +8,13 @@ void down()
 {
     for(int j=1;j<=n;j++)
     {
-        for(int i=n;i>0;i--)
+        for(int i=n;i>=1;i--)
         {
             if(arr[i][j]==0&&arr[i-1][j]!=0)
             {
                 arr[i][j]=arr[i-1][j];
                 arr[i-1][j]=0;
-                i=n;
+                i=n+1;
             }
         }
     }
@@ -49,10 +49,10 @@ int main() {
         int y=r;
         for(int a=0;a<num-1;a++)
         {
-            if(y+dy[i]<1||y+dy[i]>n||x+dx[i]<1||x+dx[i]>n) break;
             arr[y+dy[i]][x+dx[i]]=0;
             y+=dy[i];
             x+=dx[i];
+            if(y<1||y>n||x<1||x>n) break;
         }
     }
 
