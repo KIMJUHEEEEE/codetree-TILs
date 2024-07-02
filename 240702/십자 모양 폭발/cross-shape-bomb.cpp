@@ -14,6 +14,7 @@ void down()
             {
                 arr[i][j]=arr[i-1][j];
                 arr[i-1][j]=0;
+                i=n;
             }
         }
     }
