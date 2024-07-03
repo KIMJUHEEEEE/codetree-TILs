@@ -134,11 +134,13 @@ int main() {
         moveleft();
         mergeleft();
         moveleft();
+        moveleft();
     }
     if(c=='R')
     {
         moveright();
         mergeright();
+        moveright();
         moveright();
     }
     if(c=='U')
@@ -146,11 +148,13 @@ int main() {
         moveup();
         mergeup();
         moveup();
+        moveup();
     }
     if(c=='D')
     {
         movedown();
         mergedown();
+        movedown();
         movedown();
     }
     for(int i=0;i<4;i++)
