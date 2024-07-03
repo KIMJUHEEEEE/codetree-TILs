@@ -23,6 +23,9 @@ int main() {
     }
     while (1)
     {
+        cnt = 1;
+        si = -1;
+        ei = 0;
         bool ck = 0;
         for (int i = 0; i < v.size() - 1; i++)
         {
@@ -45,12 +48,11 @@ int main() {
                 ei = 0;
             }
         }
-        if (ck == 0||v.size()==0) break;
-    
-    if (cnt >= m&&v.size()>ei)
-    {
-        v.erase(v.begin() + si, v.begin()+ei);
+        if (ck == 0) break;
     }
+    if (cnt >= m)
+    {
+        v.erase(v.begin() + si, v.end());
     }
     cout << v.size() << endl;
     for (int i = 0; i < v.size(); i++)
