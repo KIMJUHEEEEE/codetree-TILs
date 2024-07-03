@@ -27,13 +27,17 @@ int main() {
         si = -1;
         ei = 0;
         bool ck = 0;
-        for (int i = 0; i < v.size() - 1; i++)
+        for (int i = 0; i < v.size() -1; i++)
         {
             if (v[i] == v[i + 1])
             {
                 cnt += 1;
                 if (si == -1) si = i;
                 ei = i + 2;
+                if (i + 1 == v.size()-1 && cnt >= m)
+                {
+                    v.erase(v.begin() + si, v.end());
+                }
             }
             else
             {
@@ -47,12 +51,9 @@ int main() {
                 si = -1;
                 ei = 0;
             }
+            if(v.size()==0) break;
         }
         if (ck == 0) break;
-    }
-    if (cnt >= m)
-    {
-        v.erase(v.begin() + si, v.end());
     }
     cout << v.size() << endl;
     for (int i = 0; i < v.size(); i++)
