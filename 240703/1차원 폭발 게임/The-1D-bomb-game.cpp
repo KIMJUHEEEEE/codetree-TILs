@@ -46,10 +46,11 @@ int main() {
             }
         }
         if (ck == 0||v.size()==0) break;
-    }
-    if (cnt >= m)
+    
+    if (cnt >= m&&v.size()>ei)
     {
         v.erase(v.begin() + si, v.begin()+ei);
+    }
     }
     cout << v.size() << endl;
     for (int i = 0; i < v.size(); i++)
