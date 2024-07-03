@@ -13,30 +13,32 @@ int main() {
         cin>>a;
         v.push_back(a);
     }
-    
+    //v.push_back(0);
     int cnt=1;
-    int si=-1;
-    int ei=0;
-    for(int i=0;i<v.size();i++)
-    {
-        if(v[i]==v[i+1])
+    int si=0;
+    int ei=-1;
+
+    for(int i=v.size()-1;i>=0;i--)
+    {       
+        if(v[i]==v[i-1])
         {
-            cnt++;
-            if(si==-1) si=i;
-            ei=i+2;
+            cnt+=1;
+            si=i-1;
+            if(ei==-1) ei=i+1;
         }
         else
         {
             if(cnt>=m)
             {
                 v.erase(v.begin()+si,v.begin()+ei);
-                i=-1;
+                i=si+1;
             }
             cnt=1;
-            si=-1;
-            ei=0;
+            si=0;
+            ei=-1;
         }
     }
+
     cout<<v.size()<<endl;
     for(int i=0;i<v.size();i++)
     {
