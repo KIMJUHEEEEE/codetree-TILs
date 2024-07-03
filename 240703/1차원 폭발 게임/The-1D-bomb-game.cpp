@@ -9,15 +9,18 @@ int main() {
     vector<int> v;
     for(int i=0;i<n;i++)
     {
-        int a=0;
+        int a;
         cin>>a;
         v.push_back(a);
     }
-    //v.push_back(0);
     int cnt=1;
     int si=0;
     int ei=-1;
-
+    if(m==1)
+    {
+        cout<<0;
+        return 0;
+    }
     for(int i=v.size()-1;i>=0;i--)
     {       
         if(v[i]==v[i-1])
