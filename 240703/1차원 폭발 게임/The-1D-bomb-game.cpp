@@ -45,7 +45,7 @@ int main() {
                 ei = 0;
             }
         }
-        if (ck == 0) break;
+        if (ck == 0||v.size()==0) break;
     }
     if (cnt >= m)
     {
