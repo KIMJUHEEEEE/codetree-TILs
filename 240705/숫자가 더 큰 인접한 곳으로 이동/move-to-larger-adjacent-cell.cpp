@@ -31,6 +31,7 @@ int main() {
                 y+=dy[a];
                 x+=dx[a];
                 cout<<max<<' ';
+                break;
             }
             
         }
