@@ -3,8 +3,7 @@ using namespace std;
 int arr[101][101];
 
 int n, m, k;
-
-bool bomb()
+bool check()
 {
     bool ck = 0;
     for (int j = 0; j < n; j++)
@@ -14,16 +13,15 @@ bool bomb()
         int ei = 0;
         for (int i = 0; i < n - 1; i++)
         {
-            if (arr[i][j] == arr[i + 1][j]&&arr[i][j]!=0)
+            if (arr[i][j] == arr[i + 1][j] && arr[i][j] != 0)
             {
                 cnt++;
                 if (si == -1) si = i;
                 ei = i + 1;
-                if (ei == n - 1)
+                if (ei == n - 1&&cnt>=m)
                 {
                     for (int a = si; a <= ei; a++)
                     {
-                        arr[a][j] = 0;
                         ck = 1;
                     }
                     cnt = 1;
@@ -37,17 +35,61 @@ bool bomb()
                 {
                     for (int a = si; a <= ei; a++)
                     {
-                        arr[a][j] = 0;
                         ck = 1;
+                    }
+
+                }
+                cnt = 1;
+                si = -1;
+                ei = 0;
+            }
+        }
+    }
+    return ck;
+
+}
+
+void bomb()
+{
+    for (int j = 0; j < n; j++)
+    {
+        int cnt = 1;
+        int si = -1;
+        int ei = 0;
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (arr[i][j] == arr[i + 1][j] && arr[i][j] != 0)
+            {
+                cnt++;
+                if (si == -1) si = i;
+                ei = i + 1;
+                if (ei == n - 1&&cnt>=m)
+                {
+                    for (int a = si; a <= ei; a++)
+                    {
+                        arr[a][j] = 0;
                     }
                     cnt = 1;
                     si = -1;
                     ei = 0;
                 }
             }
+            else
+            {
+                if (cnt >= m)
+                {
+                    for (int a = si; a <= ei; a++)
+                    {
+                        arr[a][j] = 0;
+                    }
+                    
+                }
+                cnt = 1;
+                si = -1;
+                ei = 0;
+            }
         }
     }
-    return ck;
 }
 
 void down()
@@ -103,25 +145,32 @@ int main() {
             cin >> arr[i][j];
         }
     }
-    if(m==1)
+    if (m == 1)
     {
-        cout<<0;
+        cout << 0;
         return 0;
     }
     for (int a = 0; a < k; a++)
     {
         bomb();
         down();
+        while (1)
+        {
+            if (check() == 0) break;
+            bomb();
+            down();
+        }
         rotate();
         down();
     }
+    int cnt = 0;
     while (1)
     {
-        bool ck=bomb();
-        if (ck == 0) break;
+        if (check() == 0) break;
+        bomb();
         down();
     }
-    int cnt = 0;
+
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
