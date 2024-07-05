@@ -103,6 +103,11 @@ int main() {
             cin >> arr[i][j];
         }
     }
+    if(m==1)
+    {
+        cout<<0;
+        return 0;
+    }
     for (int a = 0; a < k; a++)
     {
         bomb();
