@@ -1,41 +1,42 @@
 #include <iostream>
 using namespace std;
-int dx[4]={0,0,-1,1};
-int dy[4]={-1,1,0,0};
+int dx[4] = { 0,0,-1,1 };
+int dy[4] = { -1,1,0,0 };
 
 int main() {
     // 여기에 코드를 작성해주세요.
-    int n,r,c;
-    cin>>n>>r>>c;
-    int arr[101][101]={0,};
-    for(int i=0;i<n;i++)
+    int n, r, c;
+    cin >> n >> r >> c;
+    int arr[101][101] = { 0, };
+    for (int i = 0; i < n; i++)
     {
-        for(int j=0;j<n;j++)
+        for (int j = 0; j < n; j++)
         {
-            cin>>arr[i][j];
+            cin >> arr[i][j];
         }
     }
-    int x=c-1;
-    int y=r-1;
-    cout<<arr[y][x]<<' ';
-    while(1)
+    int x = c - 1;
+    int y = r - 1;
+    cout << arr[y][x] << ' ';
+    while (1)
     {
-        int max=arr[y][x];
-        int dir=-1;
-        for(int a=0;a<4;a++)
-        {  
-            if(max<arr[y+dy[a]][x+dx[a]])
+        int max = arr[y][x];
+        int dir = -1;
+        for (int a = 0; a < 4; a++)
+        {
+            if (x + dx[a] < 0 || x + dx[a] >= n || y + dy[a] < 0 || y + dy[a] >= n) continue;
+            if (max < arr[y + dy[a]][x + dx[a]])
             {
-                max=arr[y+dy[a]][x+dx[a]];
-                dir=a;
-                y+=dy[a];
-                x+=dx[a];
-                cout<<max<<' ';
+                max = arr[y + dy[a]][x + dx[a]];
+                dir = a;
+                y += dy[a];
+                x += dx[a];
+                cout << max << ' ';
                 break;
             }
-            
+
         }
-        if(dir==-1) break;
+        if (dir == -1) break;
     }
 
     return 0;
