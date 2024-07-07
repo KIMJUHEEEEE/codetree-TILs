@@ -4,6 +4,7 @@ int dx[4] = { 1,0,-1,0 };
 int dy[4] = { 0,-1,0,1 };
 int n;
 char arr[101][101];
+bool ck = 0;
 int dir = 0;//우상좌하
 
 int main() {
@@ -26,7 +27,7 @@ int main() {
     while (1)
     {
         if (y < 0 || x < 0 || x >= n || y >= n) break;
-        if (x == xx+1 && y == yy && dir == 0 &&ans>0)
+        if (x == xx+1 && y == yy && dir == 0 &&ans>1)
         {
             ans = -1; break;
         }
@@ -43,6 +44,7 @@ int main() {
             else if (arr[y + 1][x + 1] == '#')
             {
                 dir = 0;
+                if (xx == x && yy == y) ck = 1;
                 y = y;
                 x = x + 1;
                 ans++;
