@@ -35,7 +35,7 @@ int main() {
     while(1)
     {
         if(y<0||x<0||x>=n||y>=n) break;
-        if(x==xx&&y==yy&&ans>=4&&dir==1&&ck()==true)
+        if(x==xx-1&&y==yy&&ans>=4&&dir==0&&ck()==true)
         {
             ans=-1; break;
         }
