@@ -30,6 +30,10 @@ int main() {
         {
             ans=-1; break;
         }
+        if(arr[y-1][x]=='#'&&arr[y+1][x]=='#'&&arr[y][x-1]=='#'&&arr[y][x+1]=='#')
+        {
+            ans=-1; break;
+        }
         if(dir==0)
         {
             if(arr[y][x+1]=='#')
