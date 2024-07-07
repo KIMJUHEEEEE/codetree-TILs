@@ -26,7 +26,7 @@ int main() {
     while (1)
     {
         if (y < 0 || x < 0 || x >= n || y >= n) break;
-        if (x == xx && y == yy &&dir==0&&arr[y+1][x+1]!='#'&&ans>0)
+        if (x == xx+1 && y == yy && dir == 0 &&ans>0)
         {
             ans = -1; break;
         }
