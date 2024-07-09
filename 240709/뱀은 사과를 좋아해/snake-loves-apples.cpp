@@ -78,7 +78,7 @@ int main() {
                 }
             }
         }
-        if (c == 'R')
+        else if (c == 'R')
         {
             int y = snake[0].first;
             int x = snake[0].second;
@@ -121,7 +121,7 @@ int main() {
                 }
             }
         }
-        if (c == 'U')
+        else if (c == 'U')
         {
             int y = snake[0].first;
             int x = snake[0].second;
@@ -154,8 +154,8 @@ int main() {
                         }
 
                     }
-                    snake[0].second = hy - 1;
-                    if (hy - 1 == 0 || snakecheck() == true)
+                    snake[0].first = hy - 1;
+                    if (hy - 1 < 0 || snakecheck() == true)
                     {
                         cout << ans;
                         return 0;
@@ -164,7 +164,7 @@ int main() {
                 }
             }
         }
-        if (c == 'L')
+        else if (c == 'L')
         {
             int y = snake[0].first;
             int x = snake[0].second;
@@ -197,8 +197,8 @@ int main() {
                         }
 
                     }
-                    snake[0].first= hx - 1;
-                    if (hx - 1 == 0 || snakecheck() == true)
+                    snake[0].second = hx - 1;
+                    if (hx - 1 < 0 || snakecheck() == true)
                     {
                         cout << ans;
                         return 0;
