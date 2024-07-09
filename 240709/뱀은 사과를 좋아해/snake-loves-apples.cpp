@@ -197,7 +197,7 @@ int main() {
                         }
 
                     }
-                    snake[0].second = hx - 1;
+                    snake[0].first= hx - 1;
                     if (hx - 1 == 0 || snakecheck() == true)
                     {
                         cout << ans;
