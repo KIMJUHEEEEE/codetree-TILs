@@ -7,7 +7,7 @@ vector<pair<int, int>> snake;
 bool snakecheck()
 {
 
-    for (int i = 1; i < snake.size() - 1; i++)
+    for (int i = 1; i < snake.size(); i++)
     {
         if (snake[0].first == snake[i].first && snake[0].second == snake[i].second)
         {
@@ -38,7 +38,11 @@ int main() {
         {
             int y = snake[0].first;
             int x = snake[0].second;
-            if (y == n-1) break;
+            if (y == n-1) {
+                ans++;
+                cout<<ans;
+                return 0;
+            }
             else
             {
                 for (int j = 0; j < p; j++)
@@ -82,7 +86,11 @@ int main() {
         {
             int y = snake[0].first;
             int x = snake[0].second;
-            if (x == n - 1) break;
+            if (x == n - 1) {
+                ans++;
+                cout<<ans;
+                return 0;
+            }
             else
             {
                 for (int j = 0; j < p; j++)
@@ -125,7 +133,11 @@ int main() {
         {
             int y = snake[0].first;
             int x = snake[0].second;
-            if (y == 0) break;
+            if (y == 0){
+                ans++;
+                cout<<ans;
+                return 0;
+            }
             else
             {
                 for (int j = 0; j < p; j++)
@@ -168,7 +180,12 @@ int main() {
         {
             int y = snake[0].first;
             int x = snake[0].second;
-            if (x == 0) break;
+            if (x == 0) 
+            {
+                ans++;
+                cout<<ans;
+                return 0;
+            }
             else
             {
                 for (int j = 0; j < p; j++)
