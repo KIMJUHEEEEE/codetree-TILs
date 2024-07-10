@@ -18,6 +18,11 @@ int main() {
             cin >> x >> y >> d;
             arr[x - 1][y - 1] = d;
         }
+        if (m == 1||m==0)
+        {
+            cout << m << endl;
+            continue;
+        }
         int cnt = 1000;
         while (cnt--) {
             char cparr[51][51] = { 0, };
@@ -30,7 +35,11 @@ int main() {
                     {
                         if (y + 1 == n)
                         {
-                            cparr[y][x] = 'U';
+                            if (cparr[y][x] != '\0')
+                            {
+                                cparr[y][x] = '\0';
+                            }
+                            else cparr[y][x] = 'U';
                         }
                         else
                         {
@@ -45,7 +54,11 @@ int main() {
                     {
                         if (y - 1 < 0)
                         {
-                            cparr[y][x] = 'D';
+                            if (cparr[y][x] != '\0')
+                            {
+                                cparr[y][x] = '\0';
+                            }
+                            else cparr[y][x] = 'D';
                         }
                         else
                         {
@@ -60,7 +73,12 @@ int main() {
                     {
                         if (x + 1 == n)
                         {
-                            cparr[y][x] = 'L';
+
+                            if (cparr[y][x ] != '\0')
+                            {
+                                cparr[y][x] = '\0';
+                            }
+                            else cparr[y][x] = 'L';
                         }
                         else
                         {
@@ -75,7 +93,11 @@ int main() {
                     {
                         if (x - 1 < 0)
                         {
-                            cparr[y][x] = 'R';
+                            if (cparr[y][x] != '\0')
+                            {
+                                cparr[y][x] = '\0';
+                            }
+                            else cparr[y][x] = 'R';
                         }
                         else
                         {
