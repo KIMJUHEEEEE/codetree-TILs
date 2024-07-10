@@ -23,7 +23,7 @@ int main() {
             cout << m << endl;
             continue;
         }
-        int cnt = 2*n+1;
+        int cnt = 2*n+2;
         while (cnt--) {
             char cparr[51][51] = { 0, };
             for (int y = 0; y < n; y++)
@@ -43,7 +43,7 @@ int main() {
                         }
                         else
                         {
-                            if (cparr[y+1][x] != '\0' || cparr[y][x] == 'M')
+                            if (cparr[y+1][x] != '\0' || cparr[y+1][x] == 'M')
                             {
                                 cparr[y+1][x] = 'M';
                             }
@@ -62,7 +62,7 @@ int main() {
                         }
                         else
                         {
-                            if (cparr[y-1][x] != '\0' || cparr[y][x] == 'M')
+                            if (cparr[y-1][x] != '\0' || cparr[y-1][x] == 'M')
                             {
                                 cparr[y-1][x] = 'M';
                             }
@@ -74,7 +74,7 @@ int main() {
                         if (x + 1 == n)
                         {
 
-                            if (cparr[y][x ] != '\0' || cparr[y][x] == 'M')
+                            if (cparr[y][x] != '\0' || cparr[y][x] == 'M')
                             {
                                 cparr[y][x] = 'M';
                             }
@@ -82,7 +82,7 @@ int main() {
                         }
                         else
                         {
-                            if (cparr[y][x+1] != '\0' || cparr[y][x] == 'M')
+                            if (cparr[y][x+1] != '\0' || cparr[y][x+1] == 'M')
                             {
                                 cparr[y][x+1] = 'M';
                             }
@@ -101,7 +101,7 @@ int main() {
                         }
                         else
                         {
-                            if (cparr[y][x-1] != '\0' || cparr[y][x] == 'M')
+                            if (cparr[y][x-1] != '\0' || cparr[y][x-1] == 'M')
                             {
                                 cparr[y][x-1] = 'M';
                             }
