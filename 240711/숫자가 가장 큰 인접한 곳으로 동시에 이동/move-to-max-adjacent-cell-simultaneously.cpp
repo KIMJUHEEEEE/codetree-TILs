@@ -8,7 +8,7 @@ int main() {
     cin >> n >> m >> t;
     int arr[101][101] = { 0, };
     int beads[101][101] = { 0, };
-    int cpbeads[101][101] = { 0, };
+
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -24,6 +24,7 @@ int main() {
     }
     for (int i = 0; i < t; i++)
     {
+        int cpbeads[101][101] = { 0, };
         for (int y = 0; y < n; y++)
         {
             for (int x = 0; x < n; x++)
