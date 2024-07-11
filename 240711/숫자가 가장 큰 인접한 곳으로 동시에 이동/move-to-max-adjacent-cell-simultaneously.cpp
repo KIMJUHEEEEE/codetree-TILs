@@ -37,6 +37,7 @@ int main() {
                     int maxy = y;
                     for (int k = 0; k < 4; k++)
                     {
+                        if(y+dy[k]<0||x+dx[k]<0||x+dx[k]==n||y+dy[k]==n) continue;
                         if (max < arr[y + dy[k]][x + dx[k]])
                         {
                             maxx = x + dx[k];
