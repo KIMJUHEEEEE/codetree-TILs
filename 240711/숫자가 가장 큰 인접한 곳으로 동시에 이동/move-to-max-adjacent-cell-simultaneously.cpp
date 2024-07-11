@@ -56,16 +56,7 @@ int main() {
             for (int x = 0; x < n; x++)
             {
                 beads[y][x] = cpbeads[y][x];
-            }
-        }
-        for (int y = 0; y < n; y++)
-        {
-            for (int x = 0; x < n; x++)
-            {
-                if (beads[y][x] > 1)
-                {
-                    beads[y][x] = 0;
-                }
+                if(beads[y][x]>1) beads[y][x]=0;
             }
         }
     }
