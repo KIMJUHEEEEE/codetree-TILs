@@ -26,8 +26,8 @@ void rec(int idx) {
         vv.push_back(i);
         if (i == 0)
         {
-            int x = v[idx].first;
-            int y = v[idx].second;
+            int x = v[idx].second;
+            int y = v[idx].first;
             if(arr[y-2][x]==0&&y-2>=0) arr[y - 2][x] = i+1;
             if(arr[y-1][x]==0&&y-1>=0) arr[y - 1][x] = i+1;
             if(arr[y+1][x]==0&&y+1<n) arr[y + 1][x] = i+1;
@@ -35,8 +35,8 @@ void rec(int idx) {
         }
         else if (i == 1)
         {
-            int x = v[idx].first;
-            int y = v[idx].second;
+            int x = v[idx].second;
+            int y = v[idx].first;
             if(arr[y-1][x]==0&&y-1>=0) arr[y - 1][x] = i+1;
             if(arr[y][x-1]==0&&x-1>=0) arr[y][x - 1] = i+1;
             if(arr[y][x+1]==0&&x+1<n) arr[y][x + 1] = i+1;
@@ -44,8 +44,8 @@ void rec(int idx) {
         }
         else if (i == 2)
         {
-            int x = v[idx].first;
-            int y = v[idx].second;
+            int x = v[idx].second;
+            int y = v[idx].first;
             if(arr[y-1][x-1]==0&&x-1>=0&&y-1>=0) arr[y - 1][x - 1] = i+1;
             if(arr[y-1][x+1]==0&&y-1>=0&&x+1<n) arr[y - 1][x + 1] = i+1;
             if(arr[y+1][x-1]==0&&y+1<n&&x-1>=0) arr[y + 1][x - 1] = i+1;
@@ -55,8 +55,8 @@ void rec(int idx) {
         vv.pop_back();
         if (i == 0)
         {
-            int x = v[idx].first;
-            int y = v[idx].second;
+            int x = v[idx].second;
+            int y = v[idx].first;
             if(arr[y - 2][x] == 1 && y - 2 >= 0) arr[y - 2][x] = 0;
             if (arr[y - 1][x] == 1 && y - 1 >= 0) arr[y - 1][x] = 0;
             if (arr[y + 1][x] == 1 && y + 1 < n) arr[y + 1][x] = 0;
@@ -64,8 +64,8 @@ void rec(int idx) {
         }
         else if (i == 1)
         {
-            int x = v[idx].first;
-            int y = v[idx].second;
+            int x = v[idx].second;
+            int y = v[idx].first;
             if (arr[y - 1][x] == 2 && y - 1 >= 0) arr[y - 1][x] = 0;
             if (arr[y][x - 1] == 2 && x - 1 >= 0) arr[y][x - 1] = 0;
             if (arr[y][x + 1] == 2 && x + 1 < n) arr[y][x + 1] = 0;
@@ -73,8 +73,8 @@ void rec(int idx) {
         }
         else if (i == 2)
         {
-            int x = v[idx].first;
-            int y = v[idx].second;
+            int x = v[idx].second;
+            int y = v[idx].first;
             if (arr[y - 1][x - 1] == 3 && x - 1 >= 0 && y - 1 >= 0) arr[y - 1][x - 1] = 0;
             if (arr[y - 1][x + 1] == 3 && y - 1 >= 0 && x + 1 < n) arr[y - 1][x + 1] = 0;
             if (arr[y + 1][x - 1] == 3 && y + 1 < n && x - 1 >= 0) arr[y + 1][x - 1] = 0;
