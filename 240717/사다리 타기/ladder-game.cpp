@@ -1,63 +1,52 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
-int arr[12][16];
-int cparr[12][16];
-int ans;
+int arr[12][12];
+int cparr[12][12];
+int ans=15;
 int n, m;
-vector<int> answer;
-vector<int> made;
-void line(vector<int>& a)
+vector<pair<int, int>> line;
+vector<pair<int, int>> made;
+bool check()
 {
+    int n1[12], n2[12];
     for (int i = 0; i < n; i++)
     {
-        a.push_back(i);
+        n1[i] = i;
+        n2[i] = i;
     }
-    for (int i = 0; i < 15; i++)
+    for (int i = 0; i < line.size(); i++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            if (arr[i][j] != 0)
-            {
-                int tmp = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = tmp;
-            }
-        }
+        int idx = line[i].second;
+        swap(n1[idx], n1[idx + 1]);
     }
+    for (int i = 0; i < made.size(); i++)
+    {
+        int idx = made[i].second;
+        swap(n2[idx], n2[idx + 1]);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (n1[i] != n2[i]) return false;
+    }
+    return true;
 }
 
-void rec(int idx,int y, int x)
+void rec(int idx)
 {
-    if (idx >= ans)
+    if (idx == m)
     {
-        made.clear();
-        return;
-    }
-    if (made == answer )
-    {
-        ans = min(ans, idx);
-        return;
-    }
-    else
-    {
-        made.clear();
-    }
-    for (int i = y; i < y+2; i++)
-    {
-        for (int j = 0; j < n - 1; j++)
+        if (check())
         {
-            if (i == y) j = x++;
-            int cnt = idx;
-            if (arr[i][j] == 0)
-            {
-                arr[i][j] = idx+1;
-                line(made);
-                rec(idx + 1,i,j);
-                arr[i][j] = 0;
-            }
+            ans = min(ans, (int)made.size());
         }
+        return;
     }
+    made.push_back(line[idx]);
+    rec(idx + 1);
+    made.pop_back();
+    rec(idx + 1);
 }
 
 int main() {
@@ -69,32 +58,10 @@ int main() {
     {
         int a, b;
         cin >> a >> b;
-        arr[b - 1][a - 1] = 1;
+        line.push_back(make_pair(b, a - 1));
     }
-    if(m==1)
-    {
-        cout<<1;
-        return 0;
-    }
-    line(answer);
-    int cnt=0;
-    for(int i=0;i<answer.size();i++)
-    {
-        if(answer[i]==i) cnt++;
-    }
-    if(cnt==answer.size())
-    {
-        cout<<0;
-        return 0;
-    }
-    for (int i = 0; i < 15; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            arr[i][j] = 0;
-        }
-    }
-    rec(0,0,0);
+    sort(line.begin(), line.end());
+    rec(0);
     cout << ans;
     return 0;
 }
