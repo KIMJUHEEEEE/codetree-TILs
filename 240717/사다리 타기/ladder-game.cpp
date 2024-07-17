@@ -71,6 +71,11 @@ int main() {
         cin >> a >> b;
         arr[b - 1][a - 1] = 1;
     }
+    if(m==1)
+    {
+        cout<<1;
+        return 0;
+    }
     line(answer);
     int cnt=0;
     for(int i=0;i<answer.size();i++)
