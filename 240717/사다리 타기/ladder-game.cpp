@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int arr[12][12];
-int cparr[12][12];
+int arr[12][16];
+int cparr[12][16];
 int ans;
 int n, m;
 vector<int> answer;
@@ -13,7 +13,7 @@ void line(vector<int>& a)
     {
         a.push_back(i);
     }
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < 15; i++)
     {
         for (int j = 0; j < n; j++)
         {
@@ -87,7 +87,7 @@ int main() {
         cout<<0;
         return 0;
     }
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < 15; i++)
     {
         for (int j = 0; j < n; j++)
         {
