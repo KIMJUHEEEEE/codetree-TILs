@@ -49,7 +49,7 @@ int main() {
     sort(arr, arr + n);
     if(n==1)
     {
-        cout<<0;
+        cout<<arr[0];
         return 0;
     }
     rec(0, 0);
