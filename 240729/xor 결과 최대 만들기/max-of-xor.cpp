@@ -31,9 +31,9 @@ void rec(int idx, int cnt)
         ans = max(ans, func());
         return;
     }
-    for (int i = idx; i <= n; i++)
+    for (int i = idx; i < n; i++)
     {
-        v.push_back(i);
+        v.push_back(arr[i]);
         rec(i+1, cnt + 1);
         v.pop_back();
     }
@@ -52,7 +52,7 @@ int main() {
         cout<<0;
         return 0;
     }
-    rec(1, 0);
+    rec(0, 0);
     cout<<ans;
     return 0;
 }
