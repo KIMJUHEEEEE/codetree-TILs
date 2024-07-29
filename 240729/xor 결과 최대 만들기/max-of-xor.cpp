@@ -47,6 +47,11 @@ int main() {
         cin >> arr[i];
     }
     sort(arr, arr + n);
+    if(n==1)
+    {
+        cout<<0;
+        return;
+    }
     rec(1, 0);
     cout<<ans;
     return 0;
