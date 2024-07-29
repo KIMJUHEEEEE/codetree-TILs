@@ -50,7 +50,7 @@ int main() {
     if(n==1)
     {
         cout<<0;
-        return;
+        return 0;
     }
     rec(1, 0);
     cout<<ans;
