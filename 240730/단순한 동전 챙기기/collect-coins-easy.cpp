@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <algorithm>
 using namespace std;
 pair<int, int> s, e;
 int n;
@@ -62,7 +61,6 @@ int main() {
             }
         }
     }
-    sort(v.begin(), v.end());
     rec(0);
     if(ans==999) ans=-1;
     cout << ans;
