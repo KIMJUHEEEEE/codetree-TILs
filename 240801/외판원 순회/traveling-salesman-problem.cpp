@@ -16,7 +16,9 @@ void rec(int idx)
         for(int i=0;i<v.size()-1;i++)
         {
             sum+=arr[v[i]][v[i+1]];
+            if(arr[v[i]][v[i+1]]==0) return;
         }
+        if(arr[v[v.size()-1]][v[0]]==0) return;
         sum+=arr[v[v.size()-1]][v[0]];
         ans=min(ans,sum);
         return;
