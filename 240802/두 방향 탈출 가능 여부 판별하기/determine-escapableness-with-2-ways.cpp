@@ -4,6 +4,7 @@ using namespace std;
 int n, m;
 int arr[101][101];
 int ans = 0;
+bool visited[101][101];
 
 bool ck(int x, int y)
 {
@@ -14,17 +15,19 @@ bool ck(int x, int y)
 void dfs(int y, int x)
 {
     if (x == m - 1 && y == n - 1) { ans = 1; return; }
-    if (ck(x, y) == false)
+    if (ck(x, y) == false || ans == 1)
     {
         return;
     }
-   
-    if (arr[y + 1][x] == 1 && y + 1 < n)
+
+    if (visited[y+1][x]==0&&arr[y + 1][x] == 1 && y + 1 < n)
     {
+        visited[y + 1][x] = 1;
         dfs(y + 1, x);
     }
-    if (arr[y][x + 1] == 1 && x + 1 < m)
+    if (visited[y][x+1]==0&&arr[y][x + 1] == 1 && x + 1 < m)
     {
+        visited[y][x + 1] == 1;
         dfs(y, x + 1);
     }
 }
