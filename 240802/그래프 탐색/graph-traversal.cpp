@@ -4,6 +4,7 @@ int n, m;
 int arr[1001][100];
 bool visited[1001][1001];
 int ans = 0;
+bool ck[1001];
 bool check(int idx)
 {
     for (int i = 0; i < n; i++)
@@ -19,11 +20,11 @@ bool check(int idx)
 
 void dfs(int idx, int cnt)
 {
-    if (check(idx) == false)
+    if (check(idx) == 0)
     {
-        ans = max(ans, cnt);
         return;
     }
+
     for (int i = 0; i < n; i++)
     {
         if (idx == i) continue;
@@ -31,12 +32,14 @@ void dfs(int idx, int cnt)
         {
             visited[idx][i] = 1;
             visited[i][idx] = 1;
+            ck[i] = 1;
             dfs(i, cnt + 1);
             arr[idx][i] = 0;
             visited[idx][i] = 0;
             visited[i][idx] = 0;
         }
     }
+   
 }
 
 int main() {
@@ -51,6 +54,10 @@ int main() {
     }
     visited[0][0] = 1;
     dfs(0, 0);
+    for (int i = 1; i < n; i++)
+    {
+        if (ck[i] == 1) ans++;
+    }
     cout << ans;
     return 0;
 }
