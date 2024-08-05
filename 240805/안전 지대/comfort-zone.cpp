@@ -12,7 +12,7 @@ bool check(int x, int y)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (x + dx[i] < 0 || y + dy[i] < 0 || x + dx[i] == n || y + dy[i] == n) continue;
+        if (x + dx[i] < 0 || y + dy[i] < 0 || x + dx[i] == m|| y + dy[i] == n) continue;
         if (arr[y + dy[i]][x + dx[i]] != 0 && ck[y + dy[i]][x + dx[i]] == 0) return true;
     }
     return false;
