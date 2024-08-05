@@ -47,6 +47,11 @@ int main() {
             k = max(k, arr[i][j]);
         }
     }
+    if(k==1)
+    {
+        cout<<1<<' '<<0;
+        return 0;
+    }
     for (int a = 1; a < k; a++)
     {
         for (int i = 0; i < n; i++)
