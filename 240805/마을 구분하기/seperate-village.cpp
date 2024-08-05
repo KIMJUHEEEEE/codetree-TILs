@@ -3,8 +3,8 @@
 #include <algorithm>
 using namespace std;
 int n;
-int arr[26][26];
-bool ck[26][26];
+int arr[30][30];
+bool ck[30][30];
 int dx[4] = { 1,0,-1,0 };
 int dy[4] = { 0,1,0,-1 };
 vector<int> popularity;
@@ -65,7 +65,7 @@ int main() {
                         if (ck[i][j] == 1)
                         {
                             ck[i][j] = 0;
-                            arr[i][j] = 0;
+                            arr[i][j]=0;
                             maxi++;
                         }
                     }
