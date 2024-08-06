@@ -20,16 +20,16 @@ int main() {
     }
     queue<pair<int,int>> q;
     q.push(make_pair(0,0));
+    visited[0][0]=1;
     while(q.size()>0)
     {
         int x=q.front().first;
         int y=q.front().second;
-        visited[y][x]=1;
         if(x==m-1&&y==n-1) ans=1;
         q.pop();
         for(int i=0;i<4;i++)
         {
-            if(x+dx[i]<0||y+dy[i]<0||x+dx[i]==n||y+dy[i]==n) continue;
+            if(x+dx[i]<0||y+dy[i]<0||x+dx[i]==m||y+dy[i]==n) continue;
             if(arr[y+dy[i]][x+dx[i]]==1&&visited[y+dy[i]][x+dx[i]]==0) 
             {q.push(make_pair(x+dx[i],y+dy[i])); visited[y+dy[i]][x+dx[i]]=1;}
         }
