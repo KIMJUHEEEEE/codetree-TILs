@@ -30,7 +30,8 @@ int main() {
         for(int i=0;i<4;i++)
         {
             if(x+dx[i]<0||y+dy[i]<0||x+dx[i]==n||y+dy[i]==n) continue;
-            if(arr[y+dy[i]][x+dx[i]]==1&&visited[y+dy[i]][x+dx[i]]==0) q.push(make_pair(x+dx[i],y+dy[i]));
+            if(arr[y+dy[i]][x+dx[i]]==1&&visited[y+dy[i]][x+dx[i]]==0) 
+            {q.push(make_pair(x+dx[i],y+dy[i])); visited[y+dy[i]][x+dx[i]]=1;}
         }
     }
     cout<<ans;
