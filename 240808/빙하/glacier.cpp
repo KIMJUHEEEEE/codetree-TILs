@@ -7,7 +7,9 @@ int dx[4] = { 1,0,-1,0 };
 int dy[4] = { 0,1,0,-1 };
 int last_num;
 int take;
+int q_num = 0;
 queue<pair<int, int>> q;
+queue<pair<int, int>> water;
 int count_g_num()
 {
     int sum = 0;
@@ -24,30 +26,30 @@ int count_g_num()
     return sum;
 }
 
-int check_water()
+void check_water()
 {
-    int q_num = 0;
-    for (int i = 0; i < n; i++)
+    bool visited[201][301] = { 0, };
+    q.push(make_pair(0, 0));
+    water.push(make_pair(0, 0));
+    visited[0][0] = 1;
+    q_num = 1;
+    while (q.size() > 0)
     {
-        for (int j = 0; j < m; j++)
+        int y = q.front().first;
+        int x = q.front().second;
+        q.pop();
+        for (int k = 0; k < 4; k++)
         {
-            if (arr[i][j] == 0)
+            if (y + dy[k] < 0 || x + dx[k] < 0 || y + dy[k] == n || x + dx[k] == m) continue;
+            if (arr[y + dy[k]][x + dx[k]] == 0&&visited[y+dy[k]][x+dx[k]]==0)
             {
-                int sum = 0;
-                for (int k = 0; k < 4; k++)
-                {
-                    if (i + dy[k] < 0 || j + dx[k] < 0 || i + dx[k] == n || j + dx[k] == m) continue;
-                    if (arr[i + dy[k]][j + dx[k]] == 1) sum++;
-                }
-                if (sum != 4)
-                {
-                    q.push(make_pair(i, j));
-                    q_num++;
-                }
+                q.push(make_pair(y + dy[k], x + dx[k]));
+                water.push(make_pair(y + dy[k], x + dx[k]));
+                visited[y + dy[k]][x + dx[k]] = 1;
+                q_num++;
             }
         }
     }
-    return q_num;
 }
 
 void bfs()
@@ -60,23 +62,23 @@ void bfs()
         {
             last_num = count_g_num();
         }
-        int q_num = check_water();
+        check_water();
         while (q_num > 0)
         {
-            int y = q.front().first;
-            int x = q.front().second;
-            q.pop();
+            int y = water.front().first;
+            int x = water.front().second;
+            water.pop();
             q_num--;
             for (int k = 0; k < 4; k++)
             {
-                if (y + dy[k] < 0 || x + dx[k] < 0 || y + dx[k] == n || x + dx[k] == m) continue;
+                if (y + dy[k] < 0 || x + dx[k] < 0 || y + dy[k] == n || x + dx[k] == m) continue;
                 if (arr[y + dy[k]][x + dx[k]] == 1)
                 {
                     arr[y + dy[k]][x + dx[k]] = 0;
                     q.push(make_pair(y + dy[k], x + dx[k]));
                 }
             }
-            
+
         }
     }
 }
@@ -92,6 +94,6 @@ int main() {
         }
     }
     bfs();
-    cout << take-1 << ' ' << last_num;
+    cout << take - 1 << ' ' << last_num;
     return 0;
 }
