@@ -33,6 +33,7 @@ int main() {
             {
                 q.push(make_pair(y+dy[i],x+dx[i]));
                 cnt[y+dy[i]][x+dx[i]]=cnt[y][x]+1;
+                visited[y+dy[i]][x+dx[i]]=1;
             }
         }
 
