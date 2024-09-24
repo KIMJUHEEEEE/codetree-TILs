@@ -24,8 +24,7 @@ void setF(int y, int x)
     arr[y][x - 1] = 9;
     arr[y][x] = 8;
     arr[y][x + 1] = 9;
-    arr[y - 1][x] = 9;
-    arr[y + 1][x] = 9;
+    arr[y-1][x] = 9;
 }
 void movesouth(int y, int x)
 {
@@ -68,9 +67,9 @@ void moveeast(int y, int x)
 }
 void clearmap()
 {
-    for (int i = 0; i < r; i++)
+    for (int i = 0; i <= r; i++)
     {
-        for (int j = 0; j < c; j++)
+        for (int j = 0; j <= c; j++)
         {
             arr[i][j] = 0;
         }
@@ -91,19 +90,19 @@ int main() {
         while (1)
         {
             if (now == 1) break;
-            if (checksouth(y, c1) == 1 && y + 2 < r)
+            if (checksouth(y, c1) == 1 && y + 2 <= r)
             {
                 movesouth(y, c1);
                 y += 1;
             }
-            else if (checkwest(y, c1) == 1 && c1 - 2 >= 0 && y + 2 < r)
+            else if (checkwest(y, c1) == 1 && c1 - 2 >= 0 && y + 2 <= r)
             {
                 d = (d + 3) % 4;
                 movewest(y, c1);
                 y += 1;
                 c1 -= 1;
             }
-            else if (checkeast(y, c1) == 1 && c1 + 2 < c && y + 2 < r)
+            else if (checkeast(y, c1) == 1 && c1 + 2 < c && y + 2 <= r)
             {
                 d = (d + 1) % 4;
                 moveeast(y, c1);
@@ -117,20 +116,20 @@ int main() {
             {
                 now = 1;
                 arr[y][c1] = 9;
-                if (y == r - 2||(d == 1 && arr[y][c1 + 2] == 0 && arr[y + 1][c1 + 1] == 0)||(d==3&&arr[y][c1-2]==0&&arr[y+1][c1-1]==0)||d==0) { 
-                    sum += y+2; 
-                    arr[y][c1 - 1] = y + 2;
-                    arr[y][c1] = y + 2;
-                    arr[y][c1 + 1] = y + 2;
-                    arr[y - 1][c1] = y + 2;
-                    arr[y + 1][c1] = y + 2;
+                if (y == r - 1||(d == 1 && arr[y][c1 + 2] == 0 && arr[y + 1][c1 + 1] == 0)||(d==3&&arr[y][c1-2]==0&&arr[y+1][c1-1]==0)||d==0) { 
+                    sum += y+1; 
+                    arr[y][c1 - 1] = y + 1;
+                    arr[y][c1] = y + 1;
+                    arr[y][c1 + 1] = y + 1;
+                    arr[y - 1][c1] = y + 1;
+                    arr[y + 1][c1] = y + 1;
                 }
                 else
                 {
                     if (d == 1)
                     {
                         int num = max(arr[y][c1 + 2], arr[y + 1][c1 + 1]);
-                        num = max(num, y + 2);
+                        num = max(num, y + 1);
                         arr[y][c1 - 1] = num;
                         arr[y][c1] = num;
                         arr[y][c1 + 1] = num;
@@ -142,7 +141,7 @@ int main() {
                     {
                         int num = max(arr[y+2][c1], arr[y + 1][c1 + 1]);
                         num = max(num, arr[y+1][c1-1]);
-                        num = max(num, y + 2);
+                        num = max(num, y + 1);
                         arr[y][c1 - 1] = num;
                         arr[y][c1] = num;
                         arr[y][c1 + 1] = num;
@@ -153,7 +152,7 @@ int main() {
                     else if (d == 3)
                     {
                         int num = max(arr[y][c1 - 2], arr[y + 1][c1 - 1]);
-                        num = max(num, y + 2);
+                        num = max(num, y + 1);
                         arr[y][c1] = num;
                         arr[y][c1 + 1] = num;
                         arr[y - 1][c1] = num;
