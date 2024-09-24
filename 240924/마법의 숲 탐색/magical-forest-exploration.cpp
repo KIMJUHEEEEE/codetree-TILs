@@ -109,7 +109,7 @@ int main() {
                 y += 1;
                 c1 += 1;
             }
-            else if (y == 0) {
+            else if (y <= 1) {
                 clearmap(); now = 1;
             }
             else
