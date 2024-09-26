@@ -10,7 +10,7 @@ int dy[4] = { 0,1,0,-1 };
 
 void clearmap()
 {
-    for (int i = 0; i <= R; i++)
+    for (int i = 0; i <= R+2; i++)
     {
         for (int j = 0; j <= C; j++)
         {
@@ -20,7 +20,7 @@ void clearmap()
     }
 }
 
-int bfs(int y, int x, int d)
+int bfs(int y, int x)
 {
     int visited[101][101] = { 0, };
     int maxy = 0;
@@ -134,7 +134,7 @@ int main() {
                 else if (d == 1) exits[y][c + 1] = 1;
                 else if (d == 2) exits[y + 1][c] = 1;
                 else if (d == 3) exits[y][c - 1] = 1;
-                ans += (bfs(y, c, d)-2);
+                ans += bfs(y, c)-2;
 
             }
         }
