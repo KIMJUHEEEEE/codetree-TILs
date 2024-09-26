@@ -154,10 +154,10 @@ bool cmp(valueth v1, valueth v2)
         if (v1.a < v2.a) return true;
         else if (v1.a == v2.a)
         {
-            if (v1.c > v2.c) return true;
+            if (v1.c < v2.c) return true;
             else if (v1.c == v2.c)
             {
-                if (v1.r > v2.r) return true;
+                if (v1.r < v2.r) return true;
                 else return false;
             }
         }
