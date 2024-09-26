@@ -122,7 +122,7 @@ int main() {
                 y += 1;
                 c += 1;
             }
-            else if (y <= 2)
+            else if (y <= 3)
             {
                 move = true;
                 clearmap();
