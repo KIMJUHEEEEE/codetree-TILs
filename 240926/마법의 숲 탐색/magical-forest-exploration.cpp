@@ -76,7 +76,7 @@ int main() {
         while (1)
         {
             if (move == true) break;
-            if (arr[y + 1][c - 1] == 0 && arr[y + 2][c] == 0 && arr[y + 1][c + 1] == 0 && y + 2 <= R)
+            if (arr[y + 1][c - 1] == 0 && arr[y + 2][c] == 0 && arr[y + 1][c + 1] == 0 && y <= R)
             {
                 arr[y - 1][c] = 0;
                 arr[y][c - 1] = 0;
@@ -90,7 +90,7 @@ int main() {
                 arr[y + 2][c] = i;
                 y += 1;
             }
-            else if (arr[y - 1][c - 1] == 0 && arr[y][c - 2] == 0 && arr[y + 1][c - 1] == 0 && arr[y + 1][c - 2] == 0 && arr[y + 2][c - 1] == 0 && y + 2 <= R && c - 2 > 0)
+            else if (arr[y - 1][c - 1] == 0 && arr[y][c - 2] == 0 && arr[y + 1][c - 1] == 0 && arr[y + 1][c - 2] == 0 && arr[y + 2][c - 1] == 0 && y <= R && c - 2 > 0)
             {
                 arr[y - 1][c] = 0;
                 arr[y][c - 1] = 0;
@@ -106,7 +106,7 @@ int main() {
                 y += 1;
                 c -= 1;
             }
-            else if (arr[y - 1][c + 1] == 0 && arr[y][c + 2] == 0 && arr[y + 1][c + 1] == 0 && arr[y + 1][c + 2] == 0 && arr[y + 2][c + 1] == 0 && y + 2 <= R && c + 2 <= C)
+            else if (arr[y - 1][c + 1] == 0 && arr[y][c + 2] == 0 && arr[y + 1][c + 1] == 0 && arr[y + 1][c + 2] == 0 && arr[y + 2][c + 1] == 0 && y <= R && c + 2 <= C)
             {
                 arr[y - 1][c] = 0;
                 arr[y][c - 1] = 0;
@@ -122,7 +122,7 @@ int main() {
                 y += 1;
                 c += 1;
             }
-            else if (y < 2)
+            else if (y <= 2)
             {
                 move = true;
                 clearmap();
@@ -134,7 +134,7 @@ int main() {
                 else if (d == 1) exits[y][c + 1] = 1;
                 else if (d == 2) exits[y + 1][c] = 1;
                 else if (d == 3) exits[y][c - 1] = 1;
-                ans += bfs(y, c, d);
+                ans += (bfs(y, c, d)-2);
 
             }
         }
