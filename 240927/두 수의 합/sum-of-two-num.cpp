@@ -7,10 +7,12 @@ int main() {
     long long n,k;
     cin>>n>>k;
     unordered_map<long long, long long> ma;
+    unordered_map<long long, long long> ord;
     for(int i=0;i<n;i++)
     {
         long long a;
         cin>>a;
+        ord.insert({i,a});
         if(ma.find(a)==ma.end())
         {
             ma.insert({a,1});
@@ -18,11 +20,14 @@ int main() {
         else ma[a]++;
     }
     int ans=0;
-    for(int i=0;i<=k/2;i++)
+    for(int i=0;i<n;i++)
     {
-        int a=ma[i];
-        int b=ma[k-i];
-        ans+=a*b;
+        if(ord[i]<=k&&ma.find(ord[i])!=ma.end()&&ma.find(k-ord[i])!=ma.end())
+        {
+            ans+=ma[ord[i]]*ma[k-ord[i]];
+            ma.erase(ord[i]);
+            ma.erase(k-ord[i]);
+        }
     }
     cout<<ans;
     return 0;
