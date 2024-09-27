@@ -22,9 +22,9 @@ int main() {
     int ans=0;
     for(int i=0;i<n;i++)
     {
-        if(ord[i]<=k&&ma.find(ord[i])!=ma.end()&&ma.find(k-ord[i])!=ma.end())
+        if(ma.find(ord[i])!=ma.end()&&ma.find(k-ord[i])!=ma.end())
         {
-            if(ma[ord[i]]==ma[k-ord[i]]) ans+=(ma[ord[i]]*(ma[ord[i]]-1))/2;
+            if(ord[i]==k-ord[i]) ans+=(ma[ord[i]]*(ma[ord[i]]-1))/2;
             else
                 ans+=ma[ord[i]]*ma[k-ord[i]];
             ma.erase(ord[i]);
