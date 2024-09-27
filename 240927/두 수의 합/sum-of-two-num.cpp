@@ -24,7 +24,9 @@ int main() {
     {
         if(ord[i]<=k&&ma.find(ord[i])!=ma.end()&&ma.find(k-ord[i])!=ma.end())
         {
-            ans+=ma[ord[i]]*ma[k-ord[i]];
+            if(ma[ord[i]]==ma[k-ord[i]]) ans+=(ma[ord[i]]*(ma[ord[i]]-1))/2;
+            else
+                ans+=ma[ord[i]]*ma[k-ord[i]];
             ma.erase(ord[i]);
             ma.erase(k-ord[i]);
         }
