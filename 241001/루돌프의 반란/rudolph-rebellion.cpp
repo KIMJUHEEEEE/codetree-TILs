@@ -4,7 +4,7 @@ using namespace std;
 pair<int, int> santa[31];
 int state[31];
 int score[31];    
-int map[52][52];
+int map[102][102];
 int main() {
     // 여기에 코드를 작성해주세요.
     int N, M, P, C, D;
