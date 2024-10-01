@@ -11,7 +11,7 @@ int main() {
     int score[31] = { 0, };
     cin >> N >> M >> P >> C >> D;
     cin >> ruy >> rux;
-    int map[52][52] = { 0, };
+    int map[N+1][N+1] = { 0, };
     map[ruy][rux] = -1;
     for (int i = 0; i < P; i++)
     {
@@ -81,13 +81,12 @@ int main() {
                 q.push(sn);
                 int y = santa[sn].first;
                 int x = santa[sn].second;
-                q.push(map[y][x]);
                 while (q.size() > 0)
                 {
                     int n = q.front();
                     q.pop();
-                    if(map[y+rdy[idx]][x+rdx[idx]]>0)
-                        q.push(map[y+rdy[idx] ][x+rdx[idx]]);
+                    if(map[y][x]>0)
+                        q.push(map[y][x]);
                     
                     map[y ][x ] = n;
                     if (n > 0)
@@ -103,7 +102,11 @@ int main() {
                 }
 
             }
-            else map[santa[sn].first][santa[sn].second] = sn;
+            else
+            {
+                if (santa[sn].first<1 || santa[sn].first>N || santa[sn].second<1 || santa[sn].second>N) state[sn] = -1;
+                map[santa[sn].first][santa[sn].second] = sn;
+            }
 
         } 
         map[ruy][rux] = -1;
