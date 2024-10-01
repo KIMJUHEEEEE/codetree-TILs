@@ -159,10 +159,11 @@ int main() {
                             {
                                 int n = q.front();
                                 q.pop();
-
+                                
                                 q.push(map[y - sdy[idx]][x - sdx[idx]]);
                                 map[y - sdy[idx]][x - sdx[idx]] = n;
-
+                                y -= sdy[idx];
+                                x -= sdx[idx];
                                 if (n > 0)
                                 {
                                     if (y<1 || y>N || x<1 || x>N) state[n] = -1;
@@ -170,8 +171,7 @@ int main() {
                                     santa[n].second = x;
                                 }
                                 if (y<1 || y>N || x<1 || x>N) break;
-                                y -= sdy[idx];
-                                x -= sdx[idx];
+
                             }
 
                         }
