@@ -86,7 +86,8 @@ int main() {
                 {
                     int n = q.front();
                     q.pop();
-                    q.push(map[y+rdy[idx] ][x+rdx[idx]]);
+                    if(map[y+rdy[idx]][x+rdx[idx]]>0)
+                        q.push(map[y+rdy[idx] ][x+rdx[idx]]);
                     
                     map[y ][x ] = n;
                     if (n > 0)
@@ -153,17 +154,16 @@ int main() {
                         {
                             queue<int> q;
                             q.push(j);
-                            int y = santa[j].first;
-                            int x = santa[j].second;
+                            int y = santa[j].first + sdy[idx] - sdy[idx] * D;
+                            int x = santa[j].second + sdx[idx] - sdx[idx] * D;
                             while (q.size() > 0)
                             {
                                 int n = q.front();
                                 q.pop();
-                                
-                                q.push(map[y - sdy[idx]][x - sdx[idx]]);
-                                map[y - sdy[idx]][x - sdx[idx]] = n;
-                                y -= sdy[idx];
-                                x -= sdx[idx];
+                                if (map[y][x] > 0)
+                                    q.push(map[y][x]);
+                                map[y][x] = n;
+
                                 if (n > 0)
                                 {
                                     if (y<1 || y>N || x<1 || x>N) state[n] = -1;
@@ -171,7 +171,8 @@ int main() {
                                     santa[n].second = x;
                                 }
                                 if (y<1 || y>N || x<1 || x>N) break;
-
+                                y -= sdy[idx];
+                                x -= sdx[idx];
                             }
 
                         }
