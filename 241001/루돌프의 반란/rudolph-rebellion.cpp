@@ -3,7 +3,8 @@
 using namespace std;
 pair<int, int> santa[31];
 int state[31];
-int score[31];
+int score[31];    
+int map[52][52];
 int main() {
     // 여기에 코드를 작성해주세요.
     int N, M, P, C, D;
@@ -11,7 +12,7 @@ int main() {
 
     cin >> N >> M >> P >> C >> D;
     cin >> ruy >> rux;
-    int map[52][52] = { 0, };
+
     map[ruy][rux] = -1;
     for (int i = 0; i < P; i++)
     {
