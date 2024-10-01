@@ -2,16 +2,16 @@
 #include <queue>
 using namespace std;
 pair<int, int> santa[31];
+int state[31];
+int score[31];
 int main() {
     // 여기에 코드를 작성해주세요.
     int N, M, P, C, D;
     int ruy, rux;
-    int state[31] = { 0, };
 
-    int score[31] = { 0, };
     cin >> N >> M >> P >> C >> D;
     cin >> ruy >> rux;
-    int map[N+1][N+1] = { 0, };
+    int map[52][52] = { 0, };
     map[ruy][rux] = -1;
     for (int i = 0; i < P; i++)
     {
@@ -53,7 +53,7 @@ int main() {
                 }
             }
         }
-        mindis = (ruy-santa[santanum].first)*(ruy-santa[santanum].first)+(rux-santa[santanum].second)*(rux-santa[santanum].second);
+        mindis = (ruy - santa[santanum].first) * (ruy - santa[santanum].first) + (rux - santa[santanum].second) * (rux - santa[santanum].second);
         int idx = 0;
         for (int j = 0; j < 8; j++)
         {
@@ -71,11 +71,14 @@ int main() {
         {
             int sn = map[ruy][rux];
             score[sn] += C;
-            santa[sn].first += rdy[idx] * C;
-            santa[sn].second += rdx[idx] * C;
-            state[sn] = 3;
-            if (santa[sn].first<1 || santa[sn].first>N || santa[sn].second<1 || santa[sn].second>N) state[sn] = -1;
-            if (map[santa[sn].first][santa[sn].second] != 0)
+            if (santa[sn].first+rdy[idx]<1 || santa[sn].first+rdy[idx]>N || santa[sn].second+rdx[idx]<1 || santa[sn].second+rdx[idx]>N) state[sn] = -1;
+            else {
+                santa[sn].first += rdy[idx] * C;
+                santa[sn].second += rdx[idx] * C;
+                state[sn] = 3;
+            }
+            
+            if (map[santa[sn].first][santa[sn].second] >0)
             {
                 queue<int> q;
                 q.push(sn);
@@ -85,10 +88,10 @@ int main() {
                 {
                     int n = q.front();
                     q.pop();
-                    if(map[y][x]>0)
+                    if (map[y][x] > 0)
                         q.push(map[y][x]);
-                    
-                    map[y ][x ] = n;
+
+                    map[y][x] = n;
                     if (n > 0)
                     {
                         if (y<1 || y>N || x<1 || x>N) state[n] = -1;
@@ -105,10 +108,11 @@ int main() {
             else
             {
                 if (santa[sn].first<1 || santa[sn].first>N || santa[sn].second<1 || santa[sn].second>N) state[sn] = -1;
-                map[santa[sn].first][santa[sn].second] = sn;
+                else
+                    map[santa[sn].first][santa[sn].second] = sn;
             }
 
-        } 
+        }
         map[ruy][rux] = -1;
         //산타 이동
         for (int j = 1; j <= P; j++)
@@ -124,7 +128,7 @@ int main() {
                 for (int k = 0; k < 4; k++)
                 {
                     if (map[santa[j].first + sdy[k]][santa[j].second + sdx[k]] > 0) continue;
-                    if (santa[j].first + sdy[k]<1 || santa[j].first + sdy[k]>N || santa[j].second+sdx[k]<1 || santa[j].second+sdx[k]>N) continue;
+                    if (santa[j].first + sdy[k]<1 || santa[j].first + sdy[k]>N || santa[j].second + sdx[k]<1 || santa[j].second + sdx[k]>N) continue;
                     if (dis > ((ruy - (santa[j].first + sdy[k])) * (ruy - (santa[j].first + sdy[k])) + (rux - (santa[j].second + sdx[k])) * (rux - (santa[j].second + sdx[k]))))
                     {
                         dis = (ruy - (santa[j].first + sdy[k])) * (ruy - (santa[j].first + sdy[k])) + (rux - (santa[j].second + sdx[k])) * (rux - (santa[j].second + sdx[k]));
@@ -183,19 +187,20 @@ int main() {
                 }
             }
         }
+
         bool ck = false;
-        for (int i = 1; i <= P; i++)
+        for (int k = 1; k <= P; k++)
         {
-            if (state[i] != -1)
+            if (state[k] != -1)
             {
-                score[i]++; ck = true;
+                score[k]++; ck = true;
             }
         }
         if (ck == false) break;
     }
-    for (int i = 1; i <= P; i++)
+    for (int k = 1; k <= P; k++)
     {
-        cout << score[i] << ' ';
+        cout << score[k] << ' ';
     }
     return 0;
 }
