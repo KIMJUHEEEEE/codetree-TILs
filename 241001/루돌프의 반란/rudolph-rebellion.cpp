@@ -92,6 +92,7 @@ int main() {
                     x += rdx[idx];
                     if (n > 0)
                     {
+                        if (y<1 || y>N || x<1 || x>N) state[n] = -1;
                         santa[n].first = y;
                         santa[n].second = x;
                     }
@@ -164,6 +165,7 @@ int main() {
                                 x -= sdx[idx];
                                 if (n > 0)
                                 {
+                                    if (y<1 || y>N || x<1 || x>N) state[n] = -1;
                                     santa[n].first = y;
                                     santa[n].second = x;
                                 }
