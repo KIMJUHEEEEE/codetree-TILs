@@ -78,18 +78,17 @@ int main() {
             if (map[santa[sn].first][santa[sn].second] != 0)
             {
                 queue<int> q;
-                q.push(map[santa[sn].first][santa[sn].second]);
+                q.push(sn);
                 int y = santa[sn].first;
                 int x = santa[sn].second;
+                q.push(map[y][x]);
                 while (q.size() > 0)
                 {
                     int n = q.front();
                     q.pop();
-                    q.push(map[y + rdy[idx]][x + rdx[idx]]);
+                    q.push(map[y+rdy[idx] ][x+rdx[idx]]);
                     
-                    map[y + rdy[idx]][x + rdx[idx]] = n;
-                    y += rdy[idx];
-                    x += rdx[idx];
+                    map[y ][x ] = n;
                     if (n > 0)
                     {
                         if (y<1 || y>N || x<1 || x>N) state[n] = -1;
@@ -97,6 +96,8 @@ int main() {
                         santa[n].second = x;
                     }
                     if (y<1 || y>N || x<1 || x>N) break;
+                    y += rdy[idx];
+                    x += rdx[idx];
 
                 }
 
@@ -158,11 +159,10 @@ int main() {
                             {
                                 int n = q.front();
                                 q.pop();
-                                
+
                                 q.push(map[y - sdy[idx]][x - sdx[idx]]);
                                 map[y - sdy[idx]][x - sdx[idx]] = n;
-                                y -= sdy[idx];
-                                x -= sdx[idx];
+
                                 if (n > 0)
                                 {
                                     if (y<1 || y>N || x<1 || x>N) state[n] = -1;
@@ -170,7 +170,8 @@ int main() {
                                     santa[n].second = x;
                                 }
                                 if (y<1 || y>N || x<1 || x>N) break;
-
+                                y -= sdy[idx];
+                                x -= sdx[idx];
                             }
 
                         }
