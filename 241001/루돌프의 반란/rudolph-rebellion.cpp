@@ -11,7 +11,7 @@ int main() {
     int score[31] = { 0, };
     cin >> N >> M >> P >> C >> D;
     cin >> ruy >> rux;
-    int map[51][51] = { 0, };
+    int map[52][52] = { 0, };
     map[ruy][rux] = -1;
     for (int i = 0; i < P; i++)
     {
