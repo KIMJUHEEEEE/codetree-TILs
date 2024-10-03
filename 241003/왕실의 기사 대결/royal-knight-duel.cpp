@@ -69,6 +69,7 @@ int main() {
         q.push(id);
         check[id] = 1;
         bool wall = 0;
+        if (knights[id].state == -1) continue;
         while (q.size() > 0)
         {
             int num = q.front();
@@ -123,6 +124,16 @@ int main() {
             for (int i = 1; i <= N; i++)
             {
                 if (knights[i].heart - knights[i].damage <= 0) knights[i].state = -1;
+            }
+            for (int i = 1; i <= L; i++)
+            {
+                for (int j = 1; j <= L; j++)
+                {
+                    if (kmap[i][j] > 0&&knights[kmap[i][j]].state == -1)
+                    {
+                        kmap[i][j] = 0;
+                    }
+                }
             }
         }
     }
